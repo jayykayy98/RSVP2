@@ -87,9 +87,9 @@ if (mysqli_num_rows($query2) == 0) {
                 <h2 class="fade-top-3">&</h2>
                 <h2 class="fade-top-3">Firdaus</h2>
                 <p class="date fade-top-4">
-                    <span>Sabtu</span>
+                    <span>Ahad</span>
                     <span>|</span>
-                    <span>31 December 9999</span>
+                    <span>14 September 2025</span>
                 </p>
             </div>
         </section>
@@ -102,30 +102,29 @@ if (mysqli_num_rows($query2) == 0) {
                     <p>Dengan penuh kesyukuran</p>
                     <p>kami</p>
                     <div class="parent">
-                        <p>Ali Bin Abu</p>
+                        <p>Mohamad Zuraidi Bin Ain</p>
                         <p>&</p>
-                        <p>Miya Binti Kasim</p>
+                        <p>Norma Binti Abdul Wahab</p>
                     </div>
                     <p>Menjemput</p>
                     <p>Dato' | Datin | Tuan | Puan | Encik | Cik</p>
                     <p>seisi keluarga hadir ke</p>
-                    <p>majlis perkahwinan putera kami</p>
+                    <p>majlis perkahwinan puteri kami</p>
                 </div>
                 <div class="two">
-                    <p>Muhamad Aida Bin Ali</p>
+                    <p>Nurul Syuhaini Aida</p>
                     <p>&</p>
-                    <p>Nur Firdaus Binti Anwar</p>
+                    <p>Mohamad Firdaus</p>
                 </div>
                 <div class="three">
                     <p class="title">Tempat</p>
-                    <p>10A Jalan Seri Ampang 2</p>
-                    <p>Kampung Pisang</p>
-                    <p>47300 Subang, Selangor</p>
+                    <p>D'Sayang Event Hall and Homestay</p>
+                    <p>Parit Buntar</p>
                 </div>
                 <div class="four">
                     <p class="title">Tarikh</p>
-                    <p>Sabtu, 31 December 9999</p>
-                    <p>Bersamaan 30 Zulhijjah 9999H</p>
+                    <p>Ahad, 14 September 2025</p>
+                    <p>Bersamaan </p>
                 </div>
                 <div class="five">
                     <p class="title">Masa</p>
@@ -270,7 +269,7 @@ if (mysqli_num_rows($query2) == 0) {
         <div class="calendar">
             <h1>Calendar</h1>
             <p>
-                <span>31 December 9999</span>
+                <span>14 September 2025</span>
                 <span>|</span>
                 <span>30 Zulhijjah 9999H</span>
             </p>
@@ -341,39 +340,39 @@ if (mysqli_num_rows($query2) == 0) {
                     <div class="first-section">
                         <i class='bx bxs-user-circle'></i>
                         <div class="name">
-                            <span>Ali</span>
-                            <span>Bapa Pengantin Lelaki</span>
+                            <span>Zuraidi</span>
+                            <span>Bapa Pengantin </span>
                         </div>
                     </div>
                     <div class="second-section">
-                        <button onclick="makePhoneCall('+60123456789')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60123456789')"><i class='bx bxl-whatsapp'></i></button>
+                        <button onclick="makePhoneCall('+60195477979')"><i class='bx bx-phone'></i></button>
+                        <button onclick="openWhatsApp('+60195477979')"><i class='bx bxl-whatsapp'></i></button>
                     </div>
                 </div>
                 <div class="person">
                     <div class="first-section">
                         <i class='bx bxs-user-circle'></i>
                         <div class="name">
-                            <span>Miya Kasim</span>
-                            <span>Ibu Pengantin Lelaki</span>
+                            <span>Norma</span>
+                            <span>Ibu Pengantin</span>
                         </div>
                     </div>
                     <div class="second-section">
-                        <button onclick="makePhoneCall('+60123456789')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60123456789')"><i class='bx bxl-whatsapp'></i></button>
+                        <button onclick="makePhoneCall('+60134927517')"><i class='bx bx-phone'></i></button>
+                        <button onclick="openWhatsApp('+60134927517')"><i class='bx bxl-whatsapp'></i></button>
                     </div>
                 </div>
                 <div class="person">
                     <div class="first-section">
                         <i class='bx bxs-user-circle'></i>
                         <div class="name">
-                            <span>Xavier Hunter</span>
-                            <span>Adik Pengantin Lelaki</span>
+                            <span>Aina</span>
+                            <span>Kakak Pengantin</span>
                         </div>
                     </div>
                     <div class="second-section">
-                        <button onclick="makePhoneCall('+60123456789')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60123456789')"><i class='bx bxl-whatsapp'></i></button>
+                        <button onclick="makePhoneCall('+60134903979')"><i class='bx bx-phone'></i></button>
+                        <button onclick="openWhatsApp('+60134903979')"><i class='bx bxl-whatsapp'></i></button>
                     </div>
                 </div>
             </div>
