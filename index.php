@@ -311,7 +311,7 @@ if (mysqli_num_rows($query2) == 0) {
             <p>Beautiful in White x Canon in D</p>
             <p>(Piano Cover by Riyandi Kusuma)</p>
             <audio id="audio-player" controls autoplay loop>
-                <source type="audio/mp3" src="./music/Beautiful in White x Canon in D (Piano Cover by Riyandi Kusuma).mp3">
+                <source type="audio/mp3" src="./music/BTS (방탄소년단) - Euphoria Piano Cover.mp3">
             </audio>
         </div>
     </div>
