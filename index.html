@@ -214,55 +214,58 @@
     </div>
 
     <script>
-        const scriptURL = "https://script.google.com/macros/s/AKfycby8T9Dt2nouQnzrWHewjnSZziULvcclj2rVOvvxVDHfx_0rGcb7n1uzPk8QCjLBGYKP/exec"; // Replace with your Google Apps Script Web URL
+    const scriptURL = "YOUR_GOOGLE_SCRIPT_URL"; // Replace with your Google Apps Script Web URL for doPost
+    const fetchURL = "YOUR_GOOGLE_SCRIPT_URL";  // Replace with your Google Apps Script Web URL for doGet
 
-        // Submit form data to Google Sheets
-        document.getElementById('form-ucapan').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
+    // Submit form data to Google Sheets
+    document.getElementById('form-ucapan').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
 
-            // Create FormData object
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('message', message);
+        // Create FormData object
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('message', message);
 
-            // Submit form data to Google Apps Script Web App
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('form-ucapan').reset();
-                    document.getElementById('success-message').style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById('success-message').style.display = 'none';
-                    }, 3000);
+        // Submit form data to Google Apps Script Web App
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('form-ucapan').reset();
+                document.getElementById('success-message').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('success-message').style.display = 'none';
+                }, 3000);
 
-                    // Fetch and display the latest ucapan
-                    fetchUcapan();
-                })
-                .catch(error => alert("Gagal hantar ucapan. Sila cuba lagi."));
-        });
+                // Fetch and display the latest ucapan
+                fetchUcapan();
+            })
+            .catch(error => alert("Gagal hantar ucapan. Sila cuba lagi."));
+    });
 
-        // Fetch the ucapan from Google Sheets and display them
-        function fetchUcapan() {
-            fetch(scriptURL)
-                .then(response => response.json())
-                .then(data => {
-                    const ucapanList = document.getElementById('ucapan-list');
-                    ucapanList.innerHTML = '';
-                    data.reverse().forEach(entry => {
-                        const div = document.createElement('div');
-                        div.classList.add('message');
-                        div.innerHTML = `<strong>${entry.name}</strong> <small>(${new Date(entry.timestamp).toLocaleString()})</small><p>${entry.message}</p>`;
-                        ucapanList.appendChild(div);
-                    });
-                })
-                .catch(error => console.error('Error fetching ucapan:', error));
-        }
+    // Fetch the ucapan from Google Sheets and display them
+    function fetchUcapan() {
+        fetch(fetchURL)  // Call the doGet function that retrieves the data
+            .then(response => response.json())
+            .then(data => {
+                const ucapanList = document.getElementById('ucapan-list');
+                ucapanList.innerHTML = '';
+                data.reverse().forEach(entry => {
+                    const div = document.createElement('div');
+                    div.classList.add('message');
+                    div.innerHTML = `<strong>${entry.name}</strong> <small>(${new Date(entry.timestamp).toLocaleString()})</small><p>${entry.message}</p>`;
+                    ucapanList.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Error fetching ucapan:', error));
+    }
 
-        // Load ucapan when page loads
-        window.addEventListener('DOMContentLoaded', fetchUcapan);
-    </script>
+    // Load ucapan when page loads
+    window.addEventListener('DOMContentLoaded', fetchUcapan);
+</script>
+
+              
 </body>
 
 </html>
