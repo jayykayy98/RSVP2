@@ -82,77 +82,139 @@
       
         <!-- Aturcara & Countdown Section -->
      <div>
-
-  <title>Countdown Timer</title>
+                <!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menghitung Hari</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9e0e6; /* Blush Pink */
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fce4ec; /* blush pink background */
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+    }
+
+    .countdown {
+      text-align: center;
+    }
+
+    .hero {
+      background-color: #f8bbd0;
+      border-radius: 20px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      color: #ad1457;
+      margin-bottom: 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .counter-boxes {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .count-box {
+      background: #fce4ec;
+      border: 2px solid #f8bbd0;
+      border-radius: 12px;
+      flex: 1;
+      padding: 10px;
+    }
+
+    .count-box h1.value {
+      font-size: 1.8rem;
+      color: #880e4f;
       margin: 0;
     }
-    .countdown {
-      background-color: #f5c6cb; /* Lighter blush pink */
-      padding: 20px 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-size: 1.2rem;
-    }
-    .countdown h1 {
-      font-size: 1.5rem;
-      margin: 0 0 15px;
-      color: #d6336c; /* Darker blush pink */
-    }
-    .timer {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #721c24; /* Dark red color for the timer */
-    }
-    .timer span {
-      padding: 0 10px;
+
+    .count-box span {
+      font-size: 0.9rem;
+      color: #6a1b9a;
     }
   </style>
+</head>
+<body>
 
-
-  <div class="countdown">
-    <h1>Countdown Timer</h1>
-    <div id="timer" class="timer">00 months 00 days 00:00:00</div>
+<div class="countdown reveal fade-bottom">
+  <div class="hero connect-page">
+    <div class="container">
+      <div class="hero-body">
+        <div class="campaign campaign-0">
+          <div class="counter timer">
+            <span class="title">Menghitung hari</span>
+            <div class="counter-boxes">
+              <div class="count-box">
+                <h1 class="value day">0</h1>
+                <span>Hari</span>
+              </div>
+              <div class="count-box">
+                <h1 class="value hour">0</h1>
+                <span>Jam</span>
+              </div>
+              <div class="count-box">
+                <h1 class="value minute">0</h1>
+                <span>Minit</span>
+              </div>
+              <div class="count-box">
+                <h1 class="value second">0</h1>
+                <span>Saat</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <script>
-    // Set the date we're counting down to (e.g., 1 month from now)
-    const targetDate = new Date().getTime() + 30 * 24 * 60 * 60 * 1000;  // 30 days from now
+<script>
+  // Set your target date here (YYYY-MM-DD HH:MM:SS)
+  const targetDate = new Date("2025-08-14T00:00:00").getTime();
 
-    // Update the countdown every 1 second
-    const x = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-      // Time calculations for months, days, hours, minutes, and seconds
-      const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30)); // Approx. month (30 days)
-      const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance <= 0) {
+      document.querySelector('.day').textContent = '0';
+      document.querySelector('.hour').textContent = '0';
+      document.querySelector('.minute').textContent = '0';
+      document.querySelector('.second').textContent = '0';
+      return;
+    }
 
-      // Display the result in the element with id="timer"
-      document.getElementById("timer").innerHTML =
-        months + " months " + days + " days " +
-        (hours < 10 ? "0" + hours : hours) + ":" +
-        (minutes < 10 ? "0" + minutes : minutes) + ":" +
-        (seconds < 10 ? "0" + seconds : seconds);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // If the countdown is finished, display some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-  </script>
+    document.querySelector('.day').textContent = days;
+    document.querySelector('.hour').textContent = hours;
+    document.querySelector('.minute').textContent = minutes;
+    document.querySelector('.second').textContent = seconds;
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
+
+ 
 </div>
 
                 <!-- Countdown Timer -->
