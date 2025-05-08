@@ -245,21 +245,26 @@
     });
 
     // Fetch the ucapan from Google Sheets and display them
-    function fetchUcapan() {
-        fetch(fetchURL)  // Call the doGet function that retrieves the data
-            .then(response => response.json())
-            .then(data => {
-                const ucapanList = document.getElementById('ucapan-list');
-                ucapanList.innerHTML = '';
-                data.reverse().forEach(entry => {
-                    const div = document.createElement('div');
-                    div.classList.add('message');
-                    div.innerHTML = `<strong>${entry.name}</strong> <small>(${new Date(entry.timestamp).toLocaleString()})</small><p>${entry.message}</p>`;
-                    ucapanList.appendChild(div);
-                });
-            })
-            .catch(error => console.error('Error fetching ucapan:', error));
-    }
+   function fetchUcapan() {
+    fetch(fetchURL)
+        .then(response => response.json())
+        .then(data => {
+            const ucapanList = document.getElementById('ucapan-list');
+            ucapanList.innerHTML = '';
+
+            // Get the last 3 entries (most recent), reverse to show newest first
+            const latestUcapan = data.slice(-3).reverse();
+
+            latestUcapan.forEach(entry => {
+                const div = document.createElement('div');
+                div.classList.add('message');
+                div.innerHTML = `<strong>${entry.name}</strong> <small>(${new Date(entry.timestamp).toLocaleString()})</small><p>${entry.message}</p>`;
+                ucapanList.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Error fetching ucapan:', error));
+}
+
 
     // Load ucapan when page loads
     window.addEventListener('DOMContentLoaded', fetchUcapan);
@@ -377,19 +382,43 @@
     </div>
 
     <div id="rsvp-menu" class="toggle-menu">
-        <div class="rsvp">
-            <form action="https://script.google.com/macros/s/AKfycbyvTZ_0X72S_9VYZIkRUBcRhDVtJQIi7d2lonCub1uQCWW6BQlQJgZHqNYZB7KkzB49zA/exec" method="POST">
-              <label>Nama:</label><br>
-                  <input type="text" name="name" required><br><br>
-                  <label>Kehadiran:</label><br>
-                  <select name="kehadiran" required>
-                  <option value="Ya">Ya</option>
-                  <option value="Tidak">Tidak</option>
-  </select><br><br>
-  <button type="submit">Hantar</button>
-</form></div></div>
-    
-
+        <h1>Maklum Balas Kehadiran</h1>
+                
+                  <form id="form-kehadiran" class="form-kehadiran">
+                    <label for="kehadiran-name">Nama Anda</label>
+                    <input type="text" name="name" id="kehadiran-name" placeholder="Contoh: Kim Taehyung" required>
+                
+                    <label for="hadir">Kehadiran</label>
+                    <select name="hadir" id="hadir" required>
+                      <option value="">-Pilih Satu-</option>
+                      <option value="ya">Hadir</option>
+                      <option value="tidak">Tidak Hadir</option>
+                    </select>
+                
+                    <button style="background-color:#218838;" type="submit">Hantar </button>
+                  </form>
+                
+                  <script>
+                    const scriptURL = "https://script.google.com/macros/s/AKfycbzeUrlSEchdol-4y8OZkO5egTR0tJuXT7O1ousap8yjCsiMXgaS6DTBhOOWnlP44gOryQ/exec"; 
+                
+                    document.getElementById("form-kehadiran").addEventListener("submit", function(e) {
+                      e.preventDefault();
+                      const form = e.target;
+                      const formData = new FormData(form);
+                
+                      fetch(scriptURL, { method: "POST", body: formData })
+                        .then(response => response.text())
+                        .then(data => {
+                          alert("Maklum balas anda telah direkod. Terima kasih!");
+                          form.reset();
+                        })
+                        .catch(error => {
+                          console.error("Error!", error.message);
+                          alert("Maaf, ada masalah. Sila cuba lagi.");
+                        });
+                    });
+                  </script>
+                </div>
 
     <div id="contact-menu" class="toggle-menu">
         <div class="contact">
