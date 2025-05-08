@@ -308,8 +308,7 @@ if (mysqli_num_rows($query2) == 0) {
     <div id="music-menu" class="toggle-menu">
         <div class="music">
             <h1>Lagu</h1>
-            <p>Beautiful in White x Canon in D</p>
-            <p>(Piano Cover by Riyandi Kusuma)</p>
+            <p>music/BTS (방탄소년단) - Euphoria Piano Cover.mp3</p>
             <audio id="audio-player" controls autoplay loop>
                 <source type="audio/mp3" src="./music/BTS (방탄소년단) - Euphoria Piano Cover.mp3">
             </audio>
