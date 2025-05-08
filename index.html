@@ -115,7 +115,7 @@
 
     <script>
         // Set the wedding date (Year, Month - 1 for zero-based, Day, Hour, Minute, Second)
-        const weddingDate = new Date(2025, 9, 14, 12, 0, 0);  // Example: June 15, 2025, 3:00 PM
+        const weddingDate = new Date(2025, 8, 14, 12, 0, 0);  // Example: June 15, 2025, 3:00 PM
 
         function updateCountdown() {
             const now = new Date();
@@ -142,6 +142,8 @@
     </script>
 </body>
 <div></div>
+                <div></div>
+                <div></div>
             <!-- Aturcara -->
             <div class="aturcara reveal fade-bottom">
                 <p class="title">aturcara majlis</p>
@@ -359,20 +361,20 @@
                 
                   <form id="form-kehadiran" class="form-kehadiran">
                     <label for="kehadiran-name">Nama Anda</label>
-                    <input type="text" name="name" id="kehadiran-name" placeholder="Contoh: Sakura Haruno" required>
+                    <input type="text" name="name" id="kehadiran-name" placeholder="Contoh: Kim Taehyung" required>
                 
                     <label for="hadir">Kehadiran</label>
                     <select name="hadir" id="hadir" required>
-                      <option value="">-- Pilih Satu --</option>
+                      <option value="">-Pilih Satu-</option>
                       <option value="ya">Hadir</option>
                       <option value="tidak">Tidak Hadir</option>
                     </select>
                 
-                    <button type="submit">Hantar Kehadiran</button>
+                    <button style="background-color:#218838;" type="submit">Hantar Kehadiran</button>
                   </form>
                 
                   <script>
-                    const scriptURL = "YOUR_GOOGLE_SCRIPT_WEBAPP_URLhttps://script.google.com/macros/s/AKfycbzeUrlSEchdol-4y8OZkO5egTR0tJuXT7O1ousap8yjCsiMXgaS6DTBhOOWnlP44gOryQ/exec"; 
+                    const scriptURL = "https://script.google.com/macros/s/AKfycbzeUrlSEchdol-4y8OZkO5egTR0tJuXT7O1ousap8yjCsiMXgaS6DTBhOOWnlP44gOryQ/exec"; 
                 
                     document.getElementById("form-kehadiran").addEventListener("submit", function(e) {
                       e.preventDefault();
