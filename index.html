@@ -300,9 +300,17 @@
     <div id="rsvp-menu" class="toggle-menu">
         <div class="rsvp">
             <form action="https://script.google.com/macros/s/AKfycbzUqlTNKjRzCglrT8O5TXISCFCXEXpi-xli8v87zFRrorNQcu0Epj1VExHdSqWPWLXOWA/exec" method="POST">
-              <input type="hidden" name="kehadiran" value="Ya">
-          <button type="submit">Saya Hadir</button>
+              <label>Nama:</label><br>
+                  <input type="text" name="name" required><br><br>
+                  <label>Kehadiran:</label><br>
+                  <select name="kehadiran" required>
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+  </select><br><br>
+  <button type="submit">Hantar</button>
 </form></div></div>
+    
+
 
     <div id="contact-menu" class="toggle-menu">
         <div class="contact">
@@ -351,7 +359,7 @@
         </div>
     </div>
 
-    <div id="ucapan-menu" class="toggle-menu">
+<!--     <div id="ucapan-menu" class="toggle-menu">
         <div class="ucapan-tetamu">
             <h1>Sampaikan Ucapan</h1>
             <form id="form-ucapan" class="form-ucapan" action="insert_message.php" method="POST">
@@ -361,8 +369,8 @@
                 <label for="ucapan">Ucapan</label>
                 <textarea name="message" id="ucapan" cols="30" rows="10" placeholder="Selemat pengantin baru..."
                     required></textarea>
-
-                <div class="button">
+ -->
+<!--                 <div class="button">
                     <button type="submit" class="hantar" id="hantar">
                         <i class='bx bxs-paper-plane'></i>
                         <span>Hantar</span>
@@ -373,8 +381,8 @@
                     </button>
                 </div>
             </form>
-        </div>
-    </div>
+        </div> -->
+<!--     </div> -->
     <!-- This container will hold the success message and will be dynamically populated -->
     <div id="success-menu" class="toggle-menu"></div>
 
