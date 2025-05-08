@@ -150,62 +150,75 @@
             <div class="rsvp">
                 <h2 class="reveal fade-bottom">Ucapan</h2>
                 <div class="container-message reveal fade-bottom">
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
-                    <div class="content">
-                        <p class="name">Anonymous</p>
-                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor velit
-                            in tincidunt vehicula. Nam fermentum
-                            finibus
-                            purus, id vulputate nibh rhoncus vel.</p>
-                    </div>
+                 <h1>Sampaikan Ucapan</h1>
+
+                            <form id="form-ucapan" class="form-ucapan">
+                              <label for="name">Nama Anda</label>
+                              <input type="text" name="name" placeholder="Uzumaki Naruto" required>
+                            
+                              <label for="message">Ucapan</label>
+                              <textarea name="message" id="ucapan" cols="30" rows="5" placeholder="Selamat pengantin baru..." required></textarea>
+                            
+                              <button type="submit">Hantar Ucapan</button>
+                            </form>
+                            
+                            <div id="success-message" style="display:none; color:green; margin-top:10px;">
+                              Terima kasih atas ucapan anda! 💌
+                            </div>
+                            
+                            <hr>
+                            
+                            <h2>Ucapan Terkini</h2>
+                            <div id="ucapan-list" style="margin-top:10px;"></div>
+                            
+                            <script>
+                            const scriptURL = "https://script.google.com/macros/s/AKfycbywAs6-y1xEjtt0KlC774sJxFqAjIQvoOVtC4G1rRI_RXHQGvToTwdoBXcNRAWhuHT8Hw/exec";
+                            
+                            // Submit form
+                            document.getElementById("form-ucapan").addEventListener("submit", function (e) {
+                              e.preventDefault();
+                              const form = e.target;
+                              const formData = new FormData(form);
+                            
+                              fetch(scriptURL, {
+                                method: "POST",
+                                body: formData
+                              })
+                                .then(response => response.text())
+                                .then(data => {
+                                  form.reset();
+                                  document.getElementById("success-message").style.display = "block";
+                                  setTimeout(() => {
+                                    document.getElementById("success-message").style.display = "none";
+                                  }, 3000);
+                            
+                                  const name = formData.get("name");
+                                  const message = formData.get("message");
+                                  addUcapanToList(name, message, new Date().toLocaleString());
+                                })
+                                .catch(error => alert("Gagal hantar ucapan. Sila cuba lagi."));
+                            });
+                            
+                            // Load existing ucapan on page load
+                            window.addEventListener("DOMContentLoaded", () => {
+                              fetch(scriptURL)
+                                .then(res => res.json())
+                                .then(data => {
+                                  data.reverse().forEach(item => {
+                                    addUcapanToList(item.name, item.message, new Date(item.timestamp).toLocaleString());
+                                  });
+                                });
+                            });
+                            
+                            function addUcapanToList(name, message, time) {
+                              const ucapanList = document.getElementById("ucapan-list");
+                              const newUcapan = document.createElement("div");
+                              newUcapan.style.marginBottom = "12px";
+                              newUcapan.innerHTML = `<strong>${name}</strong> <small>(${time})</small><br><em>${message}</em>`;
+                              ucapanList.prepend(newUcapan); // newest at top
+                            }
+                            </script>
+
                 </div>
                 
               <div class="beri-ucapan-button reveal fade-bottom">
@@ -372,7 +385,7 @@
         </div>
     </div>
 
-<!--     <div id="ucapan-menu" class="toggle-menu">
+    <div id="ucapan-menu" class="toggle-menu">
         <div class="ucapan-tetamu">
             <h1>Sampaikan Ucapan</h1>
             <form id="form-ucapan" class="form-ucapan" action="insert_message.php" method="POST">
@@ -381,7 +394,7 @@
 
                 <label for="ucapan">Ucapan</label>
                 <textarea name="message" id="ucapan" cols="30" rows="10" placeholder="Selemat pengantin baru..."
-                    required></textarea> -->
+                    required></textarea>
  -->
 <!--                 <div class="button">
                     <button type="submit" class="hantar" id="hantar">
