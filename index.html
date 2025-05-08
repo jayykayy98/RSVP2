@@ -146,11 +146,12 @@
                     </div>
                 </div>
             </div>
+            <div></div>
 <!--             <img src="./images/divider.png" alt="" class="divider reveal fade-bottom"> -->
             <div class="rsvp">
                 <h2 class="reveal fade-bottom">Ucapan</h2>
                 <div class="container-message reveal fade-bottom">
-                                        <!DOCTYPE html>
+                
                         <html lang="ms">
                         <head>
                           <meta charset="UTF-8" />
@@ -224,7 +225,7 @@
                             #ucapan-list {
                               max-width: 700px;
                               margin: 30px auto;
-                              background: white;
+                              background: #e8c1f0;
                               border-radius: 12px;
                               padding: 20px;
                               box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -276,7 +277,7 @@
                           <div id="ucapan-list"></div>
                         
                           <script>
-                            const scriptURL = "https://script.google.com/macros/s/AKfycby3S4Hy-aS82-D0AHg5Ej2BAei0_dEOysBXiBz44XVRGPaBTi4iWVphqjY4efrne7qo/exec";
+                            const scriptURL = "https://script.google.com/macros/s/AKfycbzq8j1ajyMLYzOc96AUWT3dGgWd_24Tl9Lc3JcxKpCafKDKQ3PXo6aiEbiN7MJ5lXkl/exec";
                         
                             document.getElementById("form-ucapan").addEventListener("submit", function (e) {
                               e.preventDefault();
@@ -324,16 +325,44 @@
                 </div>
                 
               <div class="beri-ucapan-button reveal fade-bottom">
-            <form action="https://script.google.com/macros/s/AKfycbyvTZ_0X72S_9VYZIkRUBcRhDVtJQIi7d2lonCub1uQCWW6BQlQJgZHqNYZB7KkzB49zA/exec" method="POST">
-              <label>Nama:</label><br>
-                  <input type="text" name="name" required><br><br>
-                  <label>Kehadiran:</label><br>
-                  <select name="kehadiran" required>
-                  <option value="Ya">Ya</option>
-                  <option value="Tidak">Tidak</option>
-              </select><br><br>
-              <button type="submit">Hantar</button>
-            </form></div>
+                
+                  <h1>Maklum Balas Kehadiran</h1>
+                
+                  <form id="form-kehadiran" class="form-kehadiran">
+                    <label for="kehadiran-name">Nama Anda</label>
+                    <input type="text" name="name" id="kehadiran-name" placeholder="Contoh: Sakura Haruno" required>
+                
+                    <label for="hadir">Kehadiran</label>
+                    <select name="hadir" id="hadir" required>
+                      <option value="">-- Pilih Satu --</option>
+                      <option value="ya">Hadir</option>
+                      <option value="tidak">Tidak Hadir</option>
+                    </select>
+                
+                    <button type="submit">Hantar Kehadiran</button>
+                  </form>
+                
+                  <script>
+                    const scriptURL = "YOUR_GOOGLE_SCRIPT_WEBAPP_URLhttps://script.google.com/macros/s/AKfycbzeUrlSEchdol-4y8OZkO5egTR0tJuXT7O1ousap8yjCsiMXgaS6DTBhOOWnlP44gOryQ/exec"; 
+                
+                    document.getElementById("form-kehadiran").addEventListener("submit", function(e) {
+                      e.preventDefault();
+                      const form = e.target;
+                      const formData = new FormData(form);
+                
+                      fetch(scriptURL, { method: "POST", body: formData })
+                        .then(response => response.text())
+                        .then(data => {
+                          alert("Maklum balas anda telah direkod. Terima kasih!");
+                          form.reset();
+                        })
+                        .catch(error => {
+                          console.error("Error!", error.message);
+                          alert("Maaf, ada masalah. Sila cuba lagi.");
+                        });
+                    });
+                  </script>
+                </div>
                 
 <!--                 <div class="beri-ucapan-button reveal fade-bottom">
                     <button id="kehadiran-btn">
