@@ -103,44 +103,78 @@
         }
     </style>
 </head>
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9e0e6; /* Blush Pink */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .countdown {
+      background-color: #f5c6cb; /* Lighter blush pink */
+      padding: 30px 50px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .countdown h1 {
+      font-size: 2rem;
+      margin: 0 0 20px;
+      color: #d6336c; /* Darker blush pink */
+    }
+    .timer {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #721c24; /* Dark red color for the timer */
+    }
+  </style>
+</head>
 <body>
-    <h1>Wedding Countdown</h1>
-    <p>Days, hours, minutes, and seconds until the big day!</p>
-    <div class="countdown" id="countdown">
-        <span id="days"></span>
-        <span id="hours"></span>
-        <span id="minutes"></span>
-        <span id="seconds"></span>
-    </div>
 
-    <script>
-        // Set the wedding date (Year, Month - 1 for zero-based, Day, Hour, Minute, Second)
-        const weddingDate = new Date(2025, 8, 14, 12, 0, 0);  // Example: June 15, 2025, 3:00 PM
+  <div class="countdown">
+    <h1>Countdown Timer</h1>
+    <div id="timer" class="timer">00:00:00</div>
+  </div>
 
-        function updateCountdown() {
-            const now = new Date();
-            const timeDifference = weddingDate - now;
+  <script>
+    // Set the date we're counting down to (e.g., 1 minute from now)
+    const targetDate = new Date().getTime() + 1 * 60 * 1000;
 
-            if (timeDifference <= 0) {
-                document.getElementById("countdown").innerHTML = "<h2>It's the big day!</h2>";
-                return;
-            }
+    // Update the countdown every 1 second
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
 
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+      // Time calculations for days, hours, minutes, and seconds
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = ${days} Days;
-            document.getElementById("hours").textContent = ${hours} Hours;
-            document.getElementById("minutes").textContent = ${minutes} Minutes;
-            document.getElementById("seconds").textContent = ${seconds} Seconds;
-        }
+      // Display the result in the element with id="timer"
+      document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
 
-        // Update the countdown every second
-        setInterval(updateCountdown, 1000);
-    </script>
+      // If the countdown is finished, display some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+
 </body>
+</html>
+
+           
+      
 <div></div>
                 <div></div>
                 <div></div>
@@ -294,7 +328,7 @@
                         
                           <form id="form-ucapan" class="form-ucapan">
                             <label for="name">Nama Anda</label>
-                            <input type="text" name="name" placeholder="Uzumaki Naruto" required>
+                            <input type="text" name="name" placeholder="Jeon Jungkook" required>
                         
                             <label for="message">Ucapan</label>
                             <textarea name="message" id="ucapan" rows="4" placeholder="Selamat pengantin baru..." required></textarea>
@@ -370,7 +404,7 @@
                       <option value="tidak">Tidak Hadir</option>
                     </select>
                 
-                    <button style="background-color:#218838;" type="submit">Hantar Kehadiran</button>
+                    <button style="background-color:#218838;" type="submit">Hantar </button>
                   </form>
                 
                   <script>
