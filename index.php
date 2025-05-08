@@ -128,7 +128,7 @@ if (mysqli_num_rows($query2) == 0) {
                 </div>
                 <div class="five">
                     <p class="title">Masa</p>
-                    <p>11:00 AM - 4:00 PM</p>
+                    <p>12 PM - 4 PM</p>
                 </div>
             </div>
             <!-- Aturcara & Countdown Section -->
@@ -169,7 +169,7 @@ if (mysqli_num_rows($query2) == 0) {
                 <p class="title">aturcara majlis</p>
                 <div class="one">
                     <p>Kehadiran Tetamu</p>
-                    <p>11:30 Pagi</p>
+                    <p>12:30 Pagi</p>
                 </div>
                 <div class="two">
                     <p>Ketibaan Pengantin</p>
@@ -289,9 +289,8 @@ if (mysqli_num_rows($query2) == 0) {
     <div id="location-menu" class="toggle-menu">
         <div class="location">
             <h1>Lokasi</h1>
-            <p>10A Jalan Seri Ampang 2</p>
-            <p>Kampung Pisang</p>
-            <p>47300 Subang, Selangor</p>
+            <p>D'Sayang Event Hall and Homestay</p>
+            <p>Parit Buntar</p>
             <div class="button" onclick="openGoogleMaps()">
                 <button class="google">
                     <i class='bx bxl-google'></i>
