@@ -222,7 +222,7 @@
     
     <form id="form-ucapan">
       <label for="name">Nama Anda</label>
-      <input type="text" name="name" placeholder="Uzumaki Naruto" required />
+      <input type="text" name="name" placeholder="Jeon Jungkook" required />
 
       <label for="message">Ucapan</label>
       <textarea name="message" placeholder="Selamat pengantin baru..." required></textarea>
@@ -241,7 +241,7 @@
   </section>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby6wLApxFGqRGHpjysRbL17ZFT3KxY52lmXNGvI6z4Cg_4scWAZ5Zwv5B-_XzxBcLQqJQ/exec'; // Gantikan dengan pautan sebenar anda
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby6wLApxFGqRGHpjysRbL17ZFT3KxY52lmXNGvI6z4Cg_4scWAZ5Zwv5B-_XzxBcLQqJQ/exec'; 
     const form = document.getElementById('form-ucapan');
     const thankYou = document.getElementById('thank-you');
 
@@ -283,42 +283,7 @@
                
               <div class="beri-ucapan-button reveal fade-bottom">
                 
-<!--                   <h1>Maklum Balas Kehadiran</h1>
-                
-                  <form id="form-kehadiran" class="form-kehadiran">
-                    <label for="kehadiran-name">Nama Anda</label>
-                    <input type="text" name="name" id="kehadiran-name" placeholder="Contoh: Kim Taehyung" required>
-                
-                    <label for="hadir">Kehadiran</label>
-                    <select name="hadir" id="hadir" required>
-                      <option value="">-Pilih Satu-</option>
-                      <option value="ya">Hadir</option>
-                      <option value="tidak">Tidak Hadir</option>
-                    </select>
-                
-                    <button style="background-color:#218838;" type="submit">Hantar </button>
-                  </form>
-                
-                  <script>
-                    const scriptURL = "https://script.google.com/macros/s/AKfycbzeUrlSEchdol-4y8OZkO5egTR0tJuXT7O1ousap8yjCsiMXgaS6DTBhOOWnlP44gOryQ/exec"; 
-                
-                    document.getElementById("form-kehadiran").addEventListener("submit", function(e) {
-                      e.preventDefault();
-                      const form = e.target;
-                      const formData = new FormData(form);
-                
-                      fetch(scriptURL, { method: "POST", body: formData })
-                        .then(response => response.text())
-                        .then(data => {
-                          alert("Maklum balas anda telah direkod. Terima kasih!");
-                          form.reset();
-                        })
-                        .catch(error => {
-                          console.error("Error!", error.message);
-                          alert("Maaf, ada masalah. Sila cuba lagi.");
-                        });
-                    });
-                  </script> -->
+
                 </div> 
          
         <section class="footer">
@@ -385,42 +350,138 @@
     </div>
 
     <div id="rsvp-menu" class="toggle-menu">
-        <h1>Maklum Balas Kehadiran</h1>
-                
-                  <form id="form-kehadiran" class="form-kehadiran">
-                    <label for="kehadiran-name">Nama Anda</label>
-                    <input type="text" name="name" id="kehadiran-name" placeholder="Contoh: Kim Taehyung" required>
-                
-                    <label for="hadir">Kehadiran</label>
-                    <select name="hadir" id="hadir" required>
-                      <option value="">-Pilih Satu-</option>
-                      <option value="ya">Hadir</option>
-                      <option value="tidak">Tidak Hadir</option>
-                    </select>
-                
-                    <button style="background-color:#218838;" type="submit">Hantar </button>
-                  </form>
-                
-                  <script>
-                    const scriptURL = "https://script.google.com/macros/s/AKfycbzeUrlSEchdol-4y8OZkO5egTR0tJuXT7O1ousap8yjCsiMXgaS6DTBhOOWnlP44gOryQ/exec"; 
-                
-                    document.getElementById("form-kehadiran").addEventListener("submit", function(e) {
-                      e.preventDefault();
-                      const form = e.target;
-                      const formData = new FormData(form);
-                
-                      fetch(scriptURL, { method: "POST", body: formData })
-                        .then(response => response.text())
-                        .then(data => {
-                          alert("Maklum balas anda telah direkod. Terima kasih!");
-                          form.reset();
-                        })
-                        .catch(error => {
-                          console.error("Error!", error.message);
-                          alert("Maaf, ada masalah. Sila cuba lagi.");
-                        });
-                    });
-                  </script>
+        <!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kehadiran Majlis</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap');
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: #444;
+      margin: 0;
+      padding: 0;
+    }
+
+    .rsvp-section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #ffffffcc;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(180, 157, 166, 0.2);
+      border: 1px solid #f1dcdc;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b95c7a;
+      font-family: 'Playfair Display', serif;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #8b4c5c;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #e6c3cb;
+      border-radius: 10px;
+      background: #fff0f4;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: #b95c7a;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #a14f6a;
+    }
+
+    #thank-you {
+      background-color: #fbe3eb;
+      padding: 15px;
+      border-radius: 10px;
+      color: #c1506d;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <section class="rsvp-section">
+    <h2>Pengesahan Kehadiran</h2>
+    
+    <form id="form-kehadiran">
+      <label for="name">Nama Penuh</label>
+      <input type="text" name="name" placeholder="Contoh: Kim Taehyung" required />
+
+      <label for="bilangan">Bilangan Kehadiran</label>
+      <select name="bilangan" required>
+        <option value="">Pilih</option>
+        <option value="1">1 Orang</option>
+        <option value="2">2 Orang</option>
+        <option value="3">3 Orang</option>
+        <option value="4+">4 Orang atau lebih</option>
+      </select>
+
+      <label for="status">Status Kehadiran</label>
+      <select name="status" required>
+        <option value="">Pilih</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Pasti">Tidak Pasti</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+
+      <button type="submit">Hantar Kehadiran</button>
+    </form>
+
+    <div id="thank-you" style="display:none;">
+      🌸 Terima kasih atas maklumbalas anda! 🌸
+    </div>
+  </section>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwoi7IqrL4FWXNqifGKie_1nvzT1rCZX9iGebQZkiSLoWlZt1tCfqnv_R1RaTiNJv_V8g/exec'; 
+    const form = document.getElementById('form-kehadiran');
+    const thankYou = document.getElementById('thank-you');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch(scriptURL, { method: 'POST', body: data })
+        .then(res => res.json())
+        .then(() => {
+          form.reset();
+          thankYou.style.display = 'block';
+        });
+    });
+  </script>
+</body>
+</html>
+
                 </div>
 
     <div id="contact-menu" class="toggle-menu">
@@ -472,7 +533,7 @@
 
     <div id="ucapan-menu" class="toggle-menu">
         <div class="ucapan-tetamu">
-            <h1>Sampaikan Ucapan</h1>
+<!--             <h1>Sampaikan Ucapan</h1>
             <form id="form-ucapan" class="form-ucapan" action="insert_message.php" method="POST">
                 <label for="name">Nama Anda</label>
                 <input type="text" name="name" placeholder="Uzumaki Naruto" required>
@@ -489,7 +550,7 @@
                         <i class='bx bx-x'></i>
                         <span>Tutup</span>
                     </button>
-                </div>
+                </div> -->
             </form>
         </div>
     </div>
