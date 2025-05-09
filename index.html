@@ -350,13 +350,13 @@
     </div>
 
     <div id="rsvp-menu" class="toggle-menu">
-        <!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="ms">
 <head>
   <meta charset="UTF-8" />
-  <title>Kehadiran Majlis</title>
+  <title>Pengesahan Kehadiran</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -427,6 +427,7 @@
       font-weight: bold;
       text-align: center;
       margin-top: 20px;
+      display: none;
     }
   </style>
 </head>
@@ -436,7 +437,7 @@
     
     <form id="form-kehadiran">
       <label for="name">Nama Penuh</label>
-      <input type="text" name="name" placeholder="Contoh: Kim Taehyung" required />
+      <input type="text" name="name" placeholder="Contoh: Nur Aisyah Binti Ali" required />
 
       <label for="bilangan">Bilangan Kehadiran</label>
       <select name="bilangan" required>
@@ -458,13 +459,13 @@
       <button type="submit">Hantar Kehadiran</button>
     </form>
 
-    <div id="thank-you" style="display:none;">
+    <div id="thank-you">
       🌸 Terima kasih atas maklumbalas anda! 🌸
     </div>
   </section>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwoi7IqrL4FWXNqifGKie_1nvzT1rCZX9iGebQZkiSLoWlZt1tCfqnv_R1RaTiNJv_V8g/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'; // Gantikan dengan script URL anda
     const form = document.getElementById('form-kehadiran');
     const thankYou = document.getElementById('thank-you');
 
@@ -476,11 +477,16 @@
         .then(() => {
           form.reset();
           thankYou.style.display = 'block';
+        })
+        .catch(error => {
+          alert('Ralat berlaku. Sila cuba lagi.');
+          console.error('Error!', error.message);
         });
     });
   </script>
 </body>
 </html>
+
 
                 </div>
 
