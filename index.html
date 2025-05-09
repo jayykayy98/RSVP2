@@ -123,157 +123,75 @@
                 <h2 class="reveal fade-bottom">Ucapan</h2>
                 <div class="container-message reveal fade-bottom">
                 <div>
-                        <!DOCTYPE html>
-<html lang="en">
-
+                       <!DOCTYPE html>
+<html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ucapan</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container {
-            margin-bottom: 20px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .message-list {
-            margin-top: 20px;
-        }
-
-        .message {
-            padding: 10px;
-            background-color: #f1f1f1;
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-
-        .message strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .message small {
-            font-size: 0.8em;
-            color: #888;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Ucapan Perkahwinan</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <section class="ucapan-section">
+    <h2>Sampaikan Ucapan</h2>
+    
+    <form id="form-ucapan">
+      <label for="name">Nama Anda</label>
+      <input type="text" name="name" placeholder="Uzumaki Naruto" required />
 
-    <div class="container">
-        <div class="form-container">
-            <h2>Hantar Ucapan</h2>
-            <form id="form-ucapan">
-                <input type="text" id="name" name="name" placeholder="Nama Anda" required>
-                <textarea id="message" name="message" placeholder="Tulis ucapan anda..." rows="4" required></textarea>
-                <button type="submit">Hantar Ucapan</button>
-            </form>
-            <div id="success-message" style="display:none; color: green;">Ucapan telah dihantar! Terima kasih.</div>
-        </div>
+      <label for="message">Ucapan</label>
+      <textarea name="message" placeholder="Selamat pengantin baru..." required></textarea>
 
-        <h3>Ucapan Terkini</h3>
-        <div id="ucapan-list" class="message-list"></div>
+      <button type="submit">Hantar Ucapan</button>
+    </form>
+
+    <div id="thank-you" style="display:none; margin-top: 20px; text-align: center;">
+      ❤️ Terima kasih atas ucapan anda! ❤️
     </div>
 
-    <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxv1SCh0vzhxd7NlDtUESWV7dk333SducqvSuCHOlPU3XSsA5imnjZDyMPms3Kiz7aS/exec"; // Replace with your Google Apps Script Web URL for doPost
-    const fetchURL = "https://script.google.com/macros/s/AKfycbxv1SCh0vzhxd7NlDtUESWV7dk333SducqvSuCHOlPU3XSsA5imnjZDyMPms3Kiz7aS/exec";  // Replace with your Google Apps Script Web URL for doGet
+    <div id="ucapan-list">
+      <h3>Ucapan Terkini</h3>
+      <div id="messages"></div>
+    </div>
+  </section>
 
-    // Submit form data to Google Sheets
-    document.getElementById('form-ucapan').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby6wLApxFGqRGHpjysRbL17ZFT3KxY52lmXNGvI6z4Cg_4scWAZ5Zwv5B-_XzxBcLQqJQ/exec'; // Replace with your Apps Script URL
+    const form = document.getElementById('form-ucapan');
+    const thankYou = document.getElementById('thank-you');
 
-        // Create FormData object
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('message', message);
-
-        // Submit form data to Google Apps Script Web App
-        fetch(scriptURL, { method: 'POST', body: formData })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('form-ucapan').reset();
-                document.getElementById('success-message').style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('success-message').style.display = 'none';
-                }, 3000);
-
-                // Fetch and display the latest ucapan
-                fetchUcapan();
-            })
-            .catch(error => alert("Gagal hantar ucapan. Sila cuba lagi."));
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch(scriptURL, { method: 'POST', body: data })
+        .then(res => res.json())
+        .then(() => {
+          form.reset();
+          thankYou.style.display = 'block';
+          loadUcapan();
+        });
     });
 
-    // Fetch the ucapan from Google Sheets and display them
-   function fetchUcapan() {
-    fetch(fetchURL)
-        .then(response => response.json())
+    function loadUcapan() {
+      fetch(scriptURL)
+        .then(res => res.json())
         .then(data => {
-            const ucapanList = document.getElementById('ucapan-list');
-            ucapanList.innerHTML = '';
+          const msgDiv = document.getElementById("messages");
+          msgDiv.innerHTML = "";
+          data.forEach(item => {
+            const card = `<div class="message">
+                            <strong>${item.name}</strong>
+                            <p>${item.message}</p>
+                          </div>`;
+            msgDiv.innerHTML += card;
+          });
+        });
+    }
 
-            // Get the last 3 entries (most recent), reverse to show newest first
-            const latestUcapan = data.slice(-3).reverse();
-
-            latestUcapan.forEach(entry => {
-                const div = document.createElement('div');
-                div.classList.add('message');
-                div.innerHTML = `<strong>${entry.name}</strong> <small>(${new Date(entry.timestamp).toLocaleString()})</small><p>${entry.message}</p>`;
-                ucapanList.appendChild(div);
-            });
-        })
-        .catch(error => console.error('Error fetching ucapan:', error));
-}
-
-
-    // Load ucapan when page loads
-    window.addEventListener('DOMContentLoaded', fetchUcapan);
-</script>
-
-              
+    loadUcapan(); // Load on page open
+  </script>
 </body>
-
 </html>
+
 
 
                 </div>
