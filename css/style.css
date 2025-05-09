@@ -227,7 +227,7 @@ section {
     # Intro
 ============================================================================================*/
 .card section.intro {
-    background: url(../images/intro2-bg.png), linear-gradient(to right, #fce4ec, #f8bbd0, #c8e6c9);
+    background: url(../images/intro2-bg.png), linear-gradient(to right, #fff0f5, #fdeff4, #fce4ec);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -292,7 +292,7 @@ section {
     justify-content: center;
     gap: 10px;
     padding: 50px 0px;
-    background: linear-gradient(to right, #fce4ec, #f8bbd0, #c8e6c9);
+    background: linear-gradient(to right, #fff0f5, #fdeff4, #fce4ec);
     min-height: 100vh;
 }
 
