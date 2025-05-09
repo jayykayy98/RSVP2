@@ -124,12 +124,97 @@
                 <div class="container-message reveal fade-bottom">
                 <div>
                       
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ms">
 <head>
   <meta charset="UTF-8" />
   <title>Ucapan Perkahwinan</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap');
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: #444;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ucapan-section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #ffffffcc;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(180, 157, 166, 0.2);
+      border: 1px solid #f1dcdc;
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #b95c7a;
+      font-family: 'Playfair Display', serif;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #8b4c5c;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #e6c3cb;
+      border-radius: 10px;
+      background: #fff0f4;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: #b95c7a;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #a14f6a;
+    }
+
+    #thank-you {
+      background-color: #fbe3eb;
+      padding: 15px;
+      border-radius: 10px;
+      color: #c1506d;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .message {
+      background: #fff0f4;
+      border: 1px solid #f0c7d4;
+      border-radius: 12px;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+    }
+
+    .message strong {
+      color: #ad4763;
+    }
+  </style>
 </head>
 <body>
   <section class="ucapan-section">
@@ -145,7 +230,7 @@
       <button type="submit">Hantar Ucapan</button>
     </form>
 
-    <div id="thank-you" style="display:none; margin-top: 20px; text-align: center;">
+    <div id="thank-you" style="display:none;">
       ❤️ Terima kasih atas ucapan anda! ❤️
     </div>
 
@@ -156,7 +241,7 @@
   </section>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxx123abcXYZ/exec'; // Replace with your Apps Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxx123abcXYZ/exec'; // Gantikan dengan pautan sebenar anda
     const form = document.getElementById('form-ucapan');
     const thankYou = document.getElementById('thank-you');
 
@@ -194,12 +279,11 @@
 </html>
 
 
-
                 </div>
-<!--                 
+               
               <div class="beri-ucapan-button reveal fade-bottom">
                 
-                  <h1>Maklum Balas Kehadiran</h1>
+<!--                   <h1>Maklum Balas Kehadiran</h1>
                 
                   <form id="form-kehadiran" class="form-kehadiran">
                     <label for="kehadiran-name">Nama Anda</label>
@@ -234,7 +318,7 @@
                           alert("Maaf, ada masalah. Sila cuba lagi.");
                         });
                     });
-                  </script>
+                  </script> -->
                 </div> -->
          
         <section class="footer">
