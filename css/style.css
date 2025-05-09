@@ -905,7 +905,8 @@ section {
     width: 250px;
     height: 40px;
     cursor: pointer;
-    background: #F8F4FF;
+    background: #b95c7a;
+    color: white;
 }
 
 .toggle-menu .calendar .button button:hover {
@@ -962,7 +963,8 @@ section {
     width: 180px;
     height: 35px;
     cursor: pointer;
-    background: #F8F4FF;
+    background: #b95c7a;
+    color: white;
 }
 
 .toggle-menu .location .button button:hover {
