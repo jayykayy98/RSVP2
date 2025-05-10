@@ -298,135 +298,42 @@
     </div>
 
     <!-- Bottom Modal -->
-            <div id="calendar-menu" class="toggle-menu">
-          <!DOCTYPE html>
-        <html lang="ms">
-        <head>
-          <meta charset="UTF-8" />
-          <title>Calendar - Aida & Firdaus</title>
-          <style>
-            body {
-              font-family: 'Segoe UI', sans-serif;
-              background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
-              background-size: cover;
-              background-attachment: fixed;
-              margin: 0;
-              padding: 0;
-              color: #5a3e46;
-            }
-        
-            #calendar-menu {
-              background: #fff0f5;
-              padding: 30px;
-              border-radius: 20px;
-              max-width: 600px;
-              margin: 50px auto;
-              box-shadow: 0 0 15px rgba(187, 143, 160, 0.2);
-            }
-        
-            .calendar h1 {
-              text-align: center;
-              color: #b95c7a;
-              font-family: 'Playfair Display', serif;
-              margin-bottom: 20px;
-            }
-        
-            .calendar p {
-              text-align: center;
-              font-size: 1.2rem;
-              color: #8b4c5c;
-              margin-bottom: 20px;
-            }
-        
-            .calendar .button {
-              display: flex;
-              justify-content: center;
-              gap: 15px;
-            }
-        
-            .calendar button {
-              background-color: #b95c7a;
-              border: none;
-              padding: 10px 15px;
-              color: white;
-              border-radius: 10px;
-              font-size: 1rem;
-              cursor: pointer;
-              transition: background 0.3s ease;
-              display: flex;
-              align-items: center;
-              gap: 8px;
-            }
-        
-            .calendar button:hover {
-              background-color: #a14f6a;
-            }
-          </style>
-        </head>
-        <body>
-          <div id="calendar-menu" class="toggle-menu">
+           <div id="calendar-menu" class="toggle-menu">
             <div class="calendar">
-              <h1>Calendar</h1>
-              <p>
-                <span>14 September 2025</span>
-                <span>|</span>
-                <span>Ahad, 12:00 PM</span>
-              </p>
-              <div class="button">
-                <button class="google" onclick="addGoogleCalendar()">📅 Google</button>
-                <button class="apple" onclick="addAppleCalendar()">🍎 Apple</button>
-              </div>
-            </div>
-          </div>
-        
-          <script>
-            function addGoogleCalendar() {
-              const title = encodeURIComponent("Majlis Perkahwinan Aida & Firdaus");
-              const location = encodeURIComponent("D'Sayang Event Hall and Homestay, Parit Buntar");
-              const details = encodeURIComponent("Majlis bermula pada pukul 12 tengah hari. Jumpa anda di sana! 🌸");
-        
-              // Format: YYYYMMDDTHHmmssZ (UTC) — 14 Sept 2025, 12 PM to 4 PM (UTC+8 → UTC = -8h)
-              const start = "20250914T040000Z";
-              const end = "20250914T080000Z";
-        
-              const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}&location=${location}&sf=true&output=xml`;
-        
-              window.open(url, '_blank');
-            }
-        
-            function addAppleCalendar() {
-                  const title = "Majlis Perkahwinan Aida & Firdaus";
-                  const location = "D'Sayang Event Hall and Homestay, Parit Buntar";
-                  const description = "Majlis bermula pada pukul 12 tengah hari. Jumpa anda di sana!";
-                  
-                  const icsContent = 
-                `BEGIN:VCALENDAR
-                VERSION:2.0
-                BEGIN:VEVENT
-                SUMMARY:${title}
-                DTSTART:20250914T120000
-                DTEND:20250914T160000
-                LOCATION:${location}
-                DESCRIPTION:${description}
-                END:VEVENT
-                END:VCALENDAR`;
-                
-                  const blob = new Blob([icsContent], { type: 'text/calendar' });
-                  const url = URL.createObjectURL(blob);
-                  
-                  const link = document.createElement('a');
-                  link.href = url;
-                  link.download = 'majlis-aida-firdaus.ics';
-                  link.style.display = 'none';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }
+                    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add to Google Calendar</title>
+</head>
+<body>
 
-          </script>
-        </body>
-        </html>
+  <h2>Majlis Perkahwinan Aida & Firdaus</h2>
+  <p>Tarikh: 14 September 2025</p>
+  <p>Lokasi: D'Sayang Event Hall and Homestay, Parit Buntar</p>
 
+  <button onclick="addGoogleCalendar()">Add to Google Calendar</button>
+
+  <script>
+    function addGoogleCalendar() {
+      const title = encodeURIComponent("Majlis Perkahwinan Aida & Firdaus");
+      const location = encodeURIComponent("D'Sayang Event Hall and Homestay, Parit Buntar");
+      const details = encodeURIComponent("Majlis bermula pada pukul 12 tengah hari. Jumpa anda di sana!");
+      const startDate = "20250914T040000Z"; // 12PM Malaysia Time
+      const endDate = "20250914T080000Z";   // 4PM Malaysia Time
+
+      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
+
+            
+               
+            </div></div>
    <div id="location-menu" class="toggle-menu">
   <div class="location">
     <h1>Lokasi</h1>
