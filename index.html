@@ -395,33 +395,34 @@
             }
         
             function addAppleCalendar() {
-              const title = "Majlis Perkahwinan Aida & Firdaus";
-              const location = "D'Sayang Event Hall and Homestay, Parit Buntar";
-              const description = "Majlis bermula pada pukul 12 tengah hari. Jumpa anda di sana!";
-              
-              // Start: 2025-09-14T12:00:00 (local time), duration: 4 hours
-              const icsContent = 
-        `BEGIN:VCALENDAR
-        VERSION:2.0
-        BEGIN:VEVENT
-        SUMMARY:${title}
-        DTSTART:20250914T120000
-        DTEND:20250914T160000
-        LOCATION:${location}
-        DESCRIPTION:${description}
-        END:VEVENT
-        END:VCALENDAR`;
-        
-              const blob = new Blob([icsContent], { type: 'text/calendar' });
-              const url = URL.createObjectURL(blob);
-        
-              const link = document.createElement('a');
-              link.href = url;
-              link.download = 'majlis-aida-firdaus.ics';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            }
+                  const title = "Majlis Perkahwinan Aida & Firdaus";
+                  const location = "D'Sayang Event Hall and Homestay, Parit Buntar";
+                  const description = "Majlis bermula pada pukul 12 tengah hari. Jumpa anda di sana!";
+                  
+                  const icsContent = 
+                `BEGIN:VCALENDAR
+                VERSION:2.0
+                BEGIN:VEVENT
+                SUMMARY:${title}
+                DTSTART:20250914T120000
+                DTEND:20250914T160000
+                LOCATION:${location}
+                DESCRIPTION:${description}
+                END:VEVENT
+                END:VCALENDAR`;
+                
+                  const blob = new Blob([icsContent], { type: 'text/calendar' });
+                  const url = URL.createObjectURL(blob);
+                  
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.download = 'majlis-aida-firdaus.ics';
+                  link.style.display = 'none';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }
+
           </script>
         </body>
         </html>
@@ -613,7 +614,8 @@
 </html>
 
                 </div>
-<div id="contact-menu" class="toggle-menu">
+ <div id="contact-menu" class="toggle-menu">
+    <div class="contact">
  <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -742,6 +744,7 @@
 </html>
 
 </div>
+     </div>
     <div id="ucapan-menu" class="toggle-menu">
         <div class="ucapan-tetamu">
 <!--             <h1>Sampaikan Ucapan</h1>
