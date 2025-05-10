@@ -350,7 +350,7 @@
     </div>
 
     <div id="rsvp-menu" class="toggle-menu">
-      <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ms">
 <head>
   <meta charset="UTF-8" />
@@ -435,7 +435,7 @@
   <section class="rsvp-section">
     <h2>Pengesahan Kehadiran</h2>
     
-    <form id="form-kehadiran">
+    <form id="form-kehadiran" method="POST" action="https://formspree.io/f/xwpoqzve">
       <label for="name">Nama Penuh</label>
       <input type="text" name="name" placeholder="Contoh: Park Jimin" required />
 
@@ -465,28 +465,33 @@
   </section>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx-ymzHXcLqvuaGevPI0mfJa_m--8JKtxM41ehn5CX9TCjElhn9rSNhLoW0m-vYnzzifg/exec'; 
     const form = document.getElementById('form-kehadiran');
     const thankYou = document.getElementById('thank-you');
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       const data = new FormData(form);
-      fetch(scriptURL, { method: 'POST', body: data })
-        .then(res => res.json())
-        .then(() => {
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
           form.reset();
           thankYou.style.display = 'block';
-        })
-        .catch(error => {
+        } else {
           alert('Ralat berlaku. Sila cuba lagi.');
-          console.error('Error!', error.message);
-        });
+        }
+      }).catch(error => {
+        alert('Ralat berlaku. Sila cuba lagi.');
+        console.error('Error:', error);
+      });
     });
   </script>
 </body>
 </html>
-
 
                 </div>
 
