@@ -507,52 +507,133 @@
 
                 </div>
 
-    <div id="contact-menu" class="toggle-menu">
-        <div class="contact">
-            <h1>Hubungi</h1>
-            <div class="content">
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Zuraidi</span>
-                            <span>Bapa Pengantin</span>
-                        </div>
-                    </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60195477979')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60195477979')"><i class='bx bxl-whatsapp'></i></button>
-                    </div>
-                </div>
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Norma</span>
-                            <span>Ibu Pengantin</span>
-                        </div>
-                    </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60134927517')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60134927517')"><i class='bx bxl-whatsapp'></i></button>
-                    </div>
-                </div>
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Aina</span>
-                            <span>Kakak Pengantin</span>
-                        </div>
-                    </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60134903979')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60134903979')"><i class='bx bxl-whatsapp'></i></button>
-                    </div>
-                </div>
-            </div>
+ <!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hubungi - Aida & Firdaus</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: #5a3e46;
+      margin: 0;
+      padding: 0;
+    }
+
+    #contact-menu {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: 50px auto;
+      box-shadow: 0 0 15px rgba(187, 143, 160, 0.2);
+    }
+
+    .contact h1 {
+      text-align: center;
+      color: #b95c7a;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px;
+    }
+
+    .person {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff8f9;
+      border: 1px solid #f1dcdc;
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+    }
+
+    .name strong {
+      font-size: 1.1rem;
+      color: #693c47;
+    }
+
+    .name span {
+      font-size: 0.9rem;
+      color: #8b4c5c;
+    }
+
+    .second-section button {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      margin-left: 8px;
+      cursor: pointer;
+      color: #b95c7a;
+      transition: transform 0.2s;
+    }
+
+    .second-section button:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="contact-menu" class="toggle-menu">
+    <div class="contact">
+      <h1>Hubungi</h1>
+      <div class="content">
+
+        <!-- Zuraidi -->
+        <div class="person">
+          <div class="name">
+            <strong>Zuraidi</strong><br>
+            <span>Bapa Pengantin</span>
+          </div>
+          <div class="second-section">
+            <button onclick="makePhoneCall('+60195477979')">📞</button>
+            <button onclick="openWhatsApp('+60195477979')">💬</button>
+          </div>
         </div>
+
+        <!-- Norma -->
+        <div class="person">
+          <div class="name">
+            <strong>Norma</strong><br>
+            <span>Ibu Pengantin</span>
+          </div>
+          <div class="second-section">
+            <button onclick="makePhoneCall('+60134927517')">📞</button>
+            <button onclick="openWhatsApp('+60134927517')">💬</button>
+          </div>
+        </div>
+
+        <!-- Aina -->
+        <div class="person">
+          <div class="name">
+            <strong>Aina</strong><br>
+            <span>Kakak Pengantin</span>
+          </div>
+          <div class="second-section">
+            <button onclick="makePhoneCall('+60134903979')">📞</button>
+            <button onclick="openWhatsApp('+60134903979')">💬</button>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
+
+  <script>
+    function makePhoneCall(number) {
+      window.location.href = `tel:${number}`;
+    }
+
+    function openWhatsApp(number) {
+      const url = `https://wa.me/${number.replace('+', '')}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
+
 
     <div id="ucapan-menu" class="toggle-menu">
         <div class="ucapan-tetamu">
