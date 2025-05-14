@@ -154,35 +154,136 @@
             <!-- Aturcara & Countdown Section -->
             <div class="countdown reveal fade-bottom">
                 <!-- Countdown Timer -->
-                <div class="hero connect-page">
-                    <div class="container">
-                        <div class="hero-body">
-                            <div class="campaign campaign-0">
-                                <div class="counter timer">
-                                    <span class="title">Menghitung hari</span>
-                                    <div class="counter-boxes">
-                                        <div class="count-box">
-                                            <h1 class="value day">0</h1>
-                                            <span>Hari</span>
-                                        </div>
-                                        <div class="count-box">
-                                            <h1 class="value hour">0</h1>
-                                            <span>Jam</span>
-                                        </div>
-                                        <div class="count-box">
-                                            <h1 class="value minute">0</h1>
-                                            <span>Minit</span>
-                                        </div>
-                                        <div class="count-box">
-                                            <h1 class="value second">0</h1>
-                                            <span>Saat</span>
-                                        </div>
-                                    </div>
-                                </div>
+                <!DOCTYPE html>
+                    <html lang="ms">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>Kiraan Detik | Majlis Perkahwinan</title>
+                        <style>
+                            body {
+                                margin: 0;
+                                font-family: 'Segoe UI', sans-serif;
+                                background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
+                                background-size: cover;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                color: #8b4c5c;
+                            }
+                    
+                            .countdown-container {
+                                text-align: center;
+                                background: #ffffffcc;
+                                border: 1px solid #f1dcdc;
+                                border-radius: 20px;
+                                padding: 30px 50px;
+                                box-shadow: 0 0 15px rgba(180, 157, 166, 0.2);
+                            }
+                    
+                            h1 {
+                                font-family: 'Playfair Display', serif;
+                                font-size: 2rem;
+                                color: #b95c7a;
+                                margin-bottom: 20px;
+                            }
+                    
+                            .timer {
+                                display: flex;
+                                justify-content: center;
+                                gap: 20px;
+                                font-size: 2rem;
+                                margin-top: 10px;
+                            }
+                    
+                            .timer div {
+                                background: #fbe3eb;
+                                padding: 15px 25px;
+                                border-radius: 12px;
+                                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                            }
+                    
+                            .label {
+                                font-size: 0.8rem;
+                                color: #a14f6a;
+                                margin-top: 5px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                    
+                    <div class="countdown-container">
+                        <h1>Kiraan Detik ke Majlis</h1>
+                        <div class="timer">
+                            <div>
+                                <span class="day">0</span>
+                                <div class="label">Hari</div>
+                            </div>
+                            <div>
+                                <span class="hour">0</span>
+                                <div class="label">Jam</div>
+                            </div>
+                            <div>
+                                <span class="minute">0</span>
+                                <div class="label">Minit</div>
+                            </div>
+                            <div>
+                                <span class="second">0</span>
+                                <div class="label">Saat</div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    
+                    <script>
+                        function setupCountdown(startTimeMillis, endTimeMillis) {
+                            const second = 1000;
+                            const minute = second * 60;
+                            const hour = minute * 60;
+                            const day = hour * 24;
+                    
+                            function calculateRemaining() {
+                                const now = new Date().getTime();
+                                return now >= startTimeMillis && now < endTimeMillis ? endTimeMillis - now : 0;
+                            }
+                    
+                            let previousGap = calculateRemaining();
+                    
+                            function countdown() {
+                                const gap = calculateRemaining();
+                    
+                                const textDay = Math.floor(gap / day);
+                                const textHour = Math.floor((gap % day) / hour);
+                                const textMinute = Math.floor((gap % hour) / minute);
+                                const textSecond = Math.floor((gap % minute) / second);
+                    
+                                document.querySelector('.day').innerText = textDay;
+                                document.querySelector('.hour').innerText = textHour;
+                                document.querySelector('.minute').innerText = textMinute;
+                                document.querySelector('.second').innerText = textSecond;
+                    
+                                // Optional: Reload page when countdown reaches 0
+                                if (previousGap > 0 && gap === 0) {
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 5000); // Reload after 5 seconds
+                                }
+                    
+                                previousGap = gap;
+                            }
+                    
+                            countdown();
+                            setInterval(countdown, 1000);
+                        }
+                    
+                        // Set your wedding date: 14 September 2025, 12:00 PM (GMT+8 Malaysia Time)
+                        const weddingDate = new Date('2025-09-14T12:00:00+08:00').getTime();
+                    
+                        setupCountdown(Date.now(), weddingDate);
+                    </script>
+                    
+                    </body>
+                    </html>
+
             </div>
             <!-- Aturcara -->
             <div class="aturcara reveal fade-bottom">
