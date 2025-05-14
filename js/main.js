@@ -100,28 +100,28 @@ setupCountdown(".campaign-0", new Date().getMilliseconds(), 1924920000000);
 /** =====================================================
  *  Add to Calendar
   ======================================================= */
-// const event = {
-//     title: "Jemputan Kenduri Kahwin John & Sarah",
-//     startDate: "99991231T033000Z", // YYYYMMDDTHHmmssZ (UTC)
-//     endDate: "99991231T090000Z",
-//     location: "10A Jalan Seri Ampang 2, Kampung Pisang, 47300 Subang, Selangor, Malaysia",
-//     description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan anakanda kami.",
-// };
+const event = {
+    title: "Jemputan Kenduri Kahwin John & Sarah",
+    startDate: "99991231T033000Z", // YYYYMMDDTHHmmssZ (UTC)
+    endDate: "99991231T090000Z",
+    location: "10A Jalan Seri Ampang 2, Kampung Pisang, 47300 Subang, Selangor, Malaysia",
+    description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan anakanda kami.",
+};
 
 // Function to generate Google Calendar URL
-// function generateGoogleCalendarLink(event) {
-//     const { title, startDate, endDate, location, description } = event;
+function generateGoogleCalendarLink(event) {
+    const { title, startDate, endDate, location, description } = event;
 
-//     const baseUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE";
-//     const params = new URLSearchParams({
-//         text: title,
-//         dates: `${startDate}/${endDate}`,
-//         details: description,
-//         location: location,
-//     });
+    const baseUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE";
+    const params = new URLSearchParams({
+        text: title,
+        dates: `${startDate}/${endDate}`,
+        details: description,
+        location: location,
+    });
 
-//     return `${baseUrl}&${params.toString()}`;
-// }
+    return `${baseUrl}&${params.toString()}`;
+}
 
 // Function to generate ICS file content
 function generateICS(event) {
@@ -195,16 +195,16 @@ function openWaze() {
 /** =====================================================
     Contact
   ======================================================= */
-// function openWhatsApp(phoneNumber) {
-//     const message = "Hello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
-//     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-//     window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
-// }
+function openWhatsApp(phoneNumber) {
+    const message = "https://kad-jemputan-kahwin.vercel.app/\n\nHello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
+}
 
-// function makePhoneCall(phoneNumber) {
-//     const callUrl = `tel:${phoneNumber}`;
-//     window.location.href = callUrl;  // Opens the phone dialer
-// }
+function makePhoneCall(phoneNumber) {
+    const callUrl = `tel:${phoneNumber}`;
+    window.location.href = callUrl;  // Opens the phone dialer
+}
 
 
 
