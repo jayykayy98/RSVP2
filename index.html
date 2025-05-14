@@ -331,8 +331,8 @@
                 <li id="location-btn"><i class='bx bx-map'></i></li>
                 <li id="music-btn"><i class='bx bx-music'></i></li>
                 <li id="rsvp-btn"><i class='bx bx-envelope'></i></li>
-                <li id="contact-btn"><i class='bx bx-phone'></i></li>
-		<li id="gift-btn"><i class='bx bx-gift'></i></li>
+<!--                 <li id="contact-btn"><i class='bx bx-phone'></i></li>
+		<li id="gift-btn"><i class='bx bx-gift'></i></li> -->
             </ul>
         </section>
     </div>
@@ -391,17 +391,110 @@
 
     <div id="rsvp-menu" class="toggle-menu">
         <div class="rsvp">
-            <h1>Kehadiran</h1>
-            <div class="button">
-                <button type="button" id="btn-hadir">
-                    <i class='bx bx-check'></i>
-                    <span>Hadir</span>
-                </button>
-                <button type="button" id="btn-tidak-hadir">
-                    <i class='bx bx-x'></i>
-                    <span>Tidak Hadir</span>
-                </button>
+           <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kehadiran - RSVP</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        .rsvp-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .rsvp-container h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-field {
+            margin-bottom: 15px;
+        }
+        .form-field label {
+            font-weight: bold;
+            color: #555;
+        }
+        .form-field input, .form-field select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-field input[type="submit"] {
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .form-field input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rsvp-container">
+        <h2>Kehadiran - RSVP</h2>
+        <form id="rsvp-form" action="https://formspree.io/f/mwkajkzq" method="POST">
+            <div class="form-field">
+                <label for="name">Nama Anda:</label>
+                <input type="text" id="name" name="name" required>
             </div>
+            <div class="form-field">
+                <label for="attendance">Pilihan Hadir/Tidak Hadir:</label>
+                <select id="attendance" name="attendance" required>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="number">Bilangan (berapa orang yang akan hadir?):</label>
+                <input type="number" id="number" name="number" min="1" required>
+            </div>
+            <div class="form-field">
+                <input type="submit" value="Hantar">
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Ensure the form submission works with Formspree
+        $('#rsvp-form').submit(function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Show a loading message or spinner
+            alert("Terima kasih atas RSVP anda!");
+
+            // Submit the form data to Formspree
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function() {
+                    alert('Terima kasih! Kami telah menerima RSVP anda.');
+                    $('#rsvp-form')[0].reset(); // Reset the form fields
+                },
+                error: function() {
+                    alert('Terdapat ralat semasa penghantaran RSVP. Sila cuba lagi.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
         </div>
     </div>
 
