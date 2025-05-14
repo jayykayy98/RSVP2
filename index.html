@@ -152,145 +152,39 @@
                 </div>
             </div>
             <!-- Aturcara & Countdown Section -->
-            <div class="countdown reveal fade-bottom">
+           <div class="countdown reveal fade-bottom">
                 <!-- Countdown Timer -->
-                                    <!DOCTYPE html>
-                    <html lang="ms">
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>Kiraan Detik | Majlis Perkahwinan</title>
-                        <style>
-                            body {
-                                margin: 0;
-                                font-family: 'Segoe UI', sans-serif;
-                                background: #fff6f7 url('https://www.transparenttextures.com/patterns/flowers.png');
-                                background-size: cover;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                height: 100vh;
-                                color: #8b4c5c;
-                            }
-                    
-                            .countdown-container {
-                                text-align: center;
-                                background: rgba(255, 255, 255, 0.95);
-                                border: 1px solid #f5d5db;
-                                border-radius: 16px;
-                                padding: 20px 30px;
-                                box-shadow: 0 0 10px rgba(180, 157, 166, 0.15);
-                                max-width: 320px;
-                            }
-                    
-                            h1 {
-                                font-family: 'Playfair Display', serif;
-                                font-size: 1.5rem;
-                                color: #b95c7a;
-                                margin-bottom: 15px;
-                            }
-                    
-                            .timer {
-                                display: flex;
-                                justify-content: space-between;
-                                gap: 10px;
-                                font-size: 1.5rem;
-                            }
-                    
-                            .timer div {
-                                background: #fbe3eb;
-                                padding: 10px 15px;
-                                border-radius: 10px;
-                                min-width: 55px;
-                            }
-                    
-                            .label {
-                                font-size: 0.7rem;
-                                color: #a14f6a;
-                                margin-top: 4px;
-                            }
-                    
-                            /* Optional save-the-date badge */
-                            .badge {
-                                position: absolute;
-                                top: 20px;
-                                left: 20px;
-                                background: #f8d7e3;
-                                color: #b95c7a;
-                                padding: 6px 12px;
-                                border-radius: 20px;
-                                font-size: 0.8rem;
-                                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                                font-family: 'Playfair Display', serif;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                    
-                    <div class="badge">Simpan Tarikh</div>
-                    
-                    <div class="countdown-container">
-                        <h1>Kiraan Detik</h1>
-                        <div class="timer">
-                            <div>
-                                <span class="day">0</span>
-                                <div class="label">Hari</div>
-                            </div>
-                            <div>
-                                <span class="hour">0</span>
-                                <div class="label">Jam</div>
-                            </div>
-                            <div>
-                                <span class="minute">0</span>
-                                <div class="label">Minit</div>
-                            </div>
-                            <div>
-                                <span class="second">0</span>
-                                <div class="label">Saat</div>
+                <div class="hero connect-page">
+                    <div class="container">
+                        <div class="hero-body">
+                            <div class="campaign campaign-0">
+                                <div class="counter timer">
+                                    <span class="title">Menghitung hari</span>
+                                    <div class="counter-boxes">
+                                        <div class="count-box">
+                                            <h1 class="value day">0</h1>
+                                            <span>Hari</span>
+                                        </div>
+                                        <div class="count-box">
+                                            <h1 class="value hour">0</h1>
+                                            <span>Jam</span>
+                                        </div>
+                                        <div class="count-box">
+                                            <h1 class="value minute">0</h1>
+                                            <span>Minit</span>
+                                        </div>
+                                        <div class="count-box">
+                                            <h1 class="value second">0</h1>
+                                            <span>Saat</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <script>
-                        function setupCountdown(startTimeMillis, endTimeMillis) {
-                            const second = 1000;
-                            const minute = second * 60;
-                            const hour = minute * 60;
-                            const day = hour * 24;
-                    
-                            function calculateRemaining() {
-                                const now = new Date().getTime();
-                                return now >= startTimeMillis && now < endTimeMillis ? endTimeMillis - now : 0;
-                            }
-                    
-                            let previousGap = calculateRemaining();
-                    
-                            function countdown() {
-                                const gap = calculateRemaining();
-                    
-                                const textDay = Math.floor(gap / day);
-                                const textHour = Math.floor((gap % day) / hour);
-                                const textMinute = Math.floor((gap % hour) / minute);
-                                const textSecond = Math.floor((gap % minute) / second);
-                    
-                                document.querySelector('.day').innerText = textDay;
-                                document.querySelector('.hour').innerText = textHour;
-                                document.querySelector('.minute').innerText = textMinute;
-                                document.querySelector('.second').innerText = textSecond;
-                    
-                                if (previousGap > 0 && gap === 0) {
-                                    setTimeout(() => {
-                                        window.location.reload();
-                                    }, 5000);
-                                }
-                    
-                                previousGap = gap;
-                            }
-                    
-                            countdown();
-                            setInterval(countdown
-
-
+                </div>
             </div>
+
             <!-- Aturcara -->
             <div class="aturcara reveal fade-bottom">
                 <p class="title">aturcara majlis</p>
@@ -646,7 +540,7 @@
                 <li id="location-btn"><i class='bx bx-map'></i></li>
                 <li id="music-btn"><i class='bx bx-music'></i></li>
                 <li id="rsvp-btn"><i class='bx bx-envelope'></i></li>
-                <li id="contact-btn"><i class='bx bx-phone'></i></li>
+                <li id="contact-btn"><i class='bx bx-gift'></i></li>
             </ul>
         </section>
     </div>
@@ -1059,6 +953,86 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div>
+        <div id="contact-menu" class="toggle-menu">
+  <div class="contact">
+    <h1>Hubungi</h1>
+    <div class="content">
+
+      <!-- Zuraidi -->
+      <div class="person">
+        <div class="first-section">
+          <i class='bx bxs-user-circle'></i>
+          <div class="name">
+            <span>Zuraidi</span>
+            <span>Bapa Pengantin</span>
+          </div>
+        </div>
+        <div class="second-section">
+          <button onclick="makePhoneCall('+60195477979')">
+            <i class='bx bx-phone'></i>
+          </button>
+          <button onclick="openWhatsApp('+60195477979')">
+            <i class='bx bxl-whatsapp'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Norma -->
+      <div class="person">
+        <div class="first-section">
+          <i class='bx bxs-user-circle'></i>
+          <div class="name">
+            <span>Norma</span>
+            <span>Ibu Pengantin</span>
+          </div>
+        </div>
+        <div class="second-section">
+          <button onclick="makePhoneCall('+60134927517')">
+            <i class='bx bx-phone'></i>
+          </button>
+          <button onclick="openWhatsApp('+60134927517')">
+            <i class='bx bxl-whatsapp'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Aina -->
+      <div class="person">
+        <div class="first-section">
+          <i class='bx bxs-user-circle'></i>
+          <div class="name">
+            <span>Aina</span>
+            <span>Kakak Pengantin</span>
+          </div>
+        </div>
+        <div class="second-section">
+          <button onclick="makePhoneCall('+60134903979')">
+            <i class='bx bx-phone'></i>
+          </button>
+          <button onclick="openWhatsApp('+60134903979')">
+            <i class='bx bxl-whatsapp'></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript functions -->
+<script>
+  function makePhoneCall(number) {
+    window.location.href = `tel:${number}`;
+  }
+
+  function openWhatsApp(number) {
+    const url = `https://wa.me/${number.replace('+', '')}`;
+    window.open(url, '_blank');
+  }
+</script>
+
     </div>
     <!-- This container will hold the success message and will be dynamically populated -->
     <div id="success-menu" class="toggle-menu"></div>
