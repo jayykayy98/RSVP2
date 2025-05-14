@@ -96,6 +96,122 @@ setupCountdown(".campaign-0", new Date().getMilliseconds(), 1924920000000);
 
 
 
+
+/** =====================================================
+ *  Add to Calendar
+  ======================================================= */
+// const event = {
+//     title: "Jemputan Kenduri Kahwin John & Sarah",
+//     startDate: "99991231T033000Z", // YYYYMMDDTHHmmssZ (UTC)
+//     endDate: "99991231T090000Z",
+//     location: "10A Jalan Seri Ampang 2, Kampung Pisang, 47300 Subang, Selangor, Malaysia",
+//     description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan anakanda kami.",
+// };
+
+// Function to generate Google Calendar URL
+// function generateGoogleCalendarLink(event) {
+//     const { title, startDate, endDate, location, description } = event;
+
+//     const baseUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE";
+//     const params = new URLSearchParams({
+//         text: title,
+//         dates: `${startDate}/${endDate}`,
+//         details: description,
+//         location: location,
+//     });
+
+//     return `${baseUrl}&${params.toString()}`;
+// }
+
+// Function to generate ICS file content
+function generateICS(event) {
+    const { title, startDate, endDate, location, description } = event;
+
+    return `
+        BEGIN:VCALENDAR
+        VERSION:2.0
+        BEGIN:VEVENT
+        SUMMARY:${title}
+        DTSTART:${startDate}
+        DTEND:${endDate}
+        LOCATION:${location}
+        DESCRIPTION:${description}
+        END:VEVENT
+        END:VCALENDAR
+    `.trim();
+}
+
+// Function to download an ICS file
+function downloadICS(filename, content) {
+    const blob = new Blob([content], { type: "text/calendar" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Handler for Google Calendar button
+function addGoogleCalendar() {
+    const googleLink = generateGoogleCalendarLink(event);
+    window.open(googleLink, "_blank");
+}
+
+// Handler for Apple Calendar button
+function addAppleCalendar() {
+    const icsContent = generateICS(event);
+    downloadICS("event.ics", icsContent);
+}
+
+
+
+
+
+/** =====================================================
+ *  Location for Google and Waze
+  ======================================================= */
+function openGoogleMaps() {
+    const latitude = 3.1575;  // Example latitude
+    const longitude = 101.7116;  // Example longitude
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&travelmode=driving`;
+
+    window.open(googleMapsUrl, "_blank");  // Open in a new tab
+}
+
+function openWaze() {
+    const latitude = 3.1575;  // Example latitude
+    const longitude = 101.7116;  // Example longitude
+    //const wazeUrl = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
+    const wazeUrl = `waze://?ll=${latitude},${longitude}&navigate=yes`
+
+    window.open(wazeUrl, "_blank");  // Open in a new tab
+}
+
+
+
+
+
+/** =====================================================
+    Contact
+  ======================================================= */
+// function openWhatsApp(phoneNumber) {
+//     const message = "Hello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
+//     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+//     window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
+// }
+
+// function makePhoneCall(phoneNumber) {
+//     const callUrl = `tel:${phoneNumber}`;
+//     window.location.href = callUrl;  // Opens the phone dialer
+// }
+
+
+
+
+
+
+
 /** =====================================================
  *  Animation
   ======================================================= */
