@@ -154,7 +154,7 @@
             <!-- Aturcara & Countdown Section -->
             <div class="countdown reveal fade-bottom">
                 <!-- Countdown Timer -->
-                <!DOCTYPE html>
+                                    <!DOCTYPE html>
                     <html lang="ms">
                     <head>
                         <meta charset="UTF-8">
@@ -163,7 +163,7 @@
                             body {
                                 margin: 0;
                                 font-family: 'Segoe UI', sans-serif;
-                                background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
+                                background: #fff6f7 url('https://www.transparenttextures.com/patterns/flowers.png');
                                 background-size: cover;
                                 display: flex;
                                 justify-content: center;
@@ -174,46 +174,62 @@
                     
                             .countdown-container {
                                 text-align: center;
-                                background: #ffffffcc;
-                                border: 1px solid #f1dcdc;
-                                border-radius: 20px;
-                                padding: 30px 50px;
-                                box-shadow: 0 0 15px rgba(180, 157, 166, 0.2);
+                                background: rgba(255, 255, 255, 0.95);
+                                border: 1px solid #f5d5db;
+                                border-radius: 16px;
+                                padding: 20px 30px;
+                                box-shadow: 0 0 10px rgba(180, 157, 166, 0.15);
+                                max-width: 320px;
                             }
                     
                             h1 {
                                 font-family: 'Playfair Display', serif;
-                                font-size: 2rem;
+                                font-size: 1.5rem;
                                 color: #b95c7a;
-                                margin-bottom: 20px;
+                                margin-bottom: 15px;
                             }
                     
                             .timer {
                                 display: flex;
-                                justify-content: center;
-                                gap: 20px;
-                                font-size: 2rem;
-                                margin-top: 10px;
+                                justify-content: space-between;
+                                gap: 10px;
+                                font-size: 1.5rem;
                             }
                     
                             .timer div {
                                 background: #fbe3eb;
-                                padding: 15px 25px;
-                                border-radius: 12px;
-                                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                                padding: 10px 15px;
+                                border-radius: 10px;
+                                min-width: 55px;
                             }
                     
                             .label {
-                                font-size: 0.8rem;
+                                font-size: 0.7rem;
                                 color: #a14f6a;
-                                margin-top: 5px;
+                                margin-top: 4px;
+                            }
+                    
+                            /* Optional save-the-date badge */
+                            .badge {
+                                position: absolute;
+                                top: 20px;
+                                left: 20px;
+                                background: #f8d7e3;
+                                color: #b95c7a;
+                                padding: 6px 12px;
+                                border-radius: 20px;
+                                font-size: 0.8rem;
+                                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                                font-family: 'Playfair Display', serif;
                             }
                         </style>
                     </head>
                     <body>
                     
+                    <div class="badge">Simpan Tarikh</div>
+                    
                     <div class="countdown-container">
-                        <h1>Kiraan Detik ke Majlis</h1>
+                        <h1>Kiraan Detik</h1>
                         <div class="timer">
                             <div>
                                 <span class="day">0</span>
@@ -261,28 +277,18 @@
                                 document.querySelector('.minute').innerText = textMinute;
                                 document.querySelector('.second').innerText = textSecond;
                     
-                                // Optional: Reload page when countdown reaches 0
                                 if (previousGap > 0 && gap === 0) {
                                     setTimeout(() => {
                                         window.location.reload();
-                                    }, 5000); // Reload after 5 seconds
+                                    }, 5000);
                                 }
                     
                                 previousGap = gap;
                             }
                     
                             countdown();
-                            setInterval(countdown, 1000);
-                        }
-                    
-                        // Set your wedding date: 14 September 2025, 12:00 PM (GMT+8 Malaysia Time)
-                        const weddingDate = new Date('2025-09-14T12:00:00+08:00').getTime();
-                    
-                        setupCountdown(Date.now(), weddingDate);
-                    </script>
-                    
-                    </body>
-                    </html>
+                            setInterval(countdown
+
 
             </div>
             <!-- Aturcara -->
