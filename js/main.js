@@ -101,11 +101,11 @@ setupCountdown(".campaign-0", new Date().getMilliseconds(), 1924920000000);
  *  Add to Calendar
   ======================================================= */
 const event = {
-    title: "Jemputan Kenduri Kahwin John & Sarah",
-    startDate: "99991231T033000Z", // YYYYMMDDTHHmmssZ (UTC)
-    endDate: "99991231T090000Z",
-    location: "10A Jalan Seri Ampang 2, Kampung Pisang, 47300 Subang, Selangor, Malaysia",
-    description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan anakanda kami.",
+    title: "Jemputan Kenduri Kahwin Aida & Firdaus",
+    startDate: "20250914T040000Z"; , // YYYYMMDDTHHmmssZ (UTC)
+    endDate: "20250914T080000Z"; ,
+    location: "D'Sayang Event Hall and Homestay, Parit Buntar",
+    description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan puteri kami.",
 };
 
 // Function to generate Google Calendar URL
