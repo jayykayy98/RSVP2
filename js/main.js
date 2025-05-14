@@ -102,10 +102,10 @@ setupCountdown(".campaign-0", new Date().getMilliseconds(), 1924920000000);
   ======================================================= */
 const event = {
     title: "Jemputan Kenduri Kahwin Aida & Firdaus",
-    startDate: "20250914T040000Z"; , // YYYYMMDDTHHmmssZ (UTC)
-    endDate: "20250914T080000Z"; ,
+    startDate: "20250914T033000Z", // YYYYMMDDTHHmmssZ (UTC)
+    endDate: "20250914T090000Z",
     location: "D'Sayang Event Hall and Homestay, Parit Buntar",
-    description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan puteri kami.",
+    description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan anakanda kami.",
 };
 
 // Function to generate Google Calendar URL
@@ -196,7 +196,7 @@ function openWaze() {
     Contact
   ======================================================= */
 function openWhatsApp(phoneNumber) {
-    const message = "https://kad-jemputan-kahwin.vercel.app/\n\nHello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
+    const message = "Hello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
 }
