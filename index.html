@@ -645,138 +645,75 @@
 </body>
 </html>
 
-                </div>
- <div id="contact-menu" class="toggle-menu">
-    <div class="contact">
- <!DOCTYPE html>
+             <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hubungi - Aida & Firdaus</title>
+  <meta charset="UTF-8">
+  <title>E-Gift (Duit Kahwin)</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
-      background-size: cover;
-      background-attachment: fixed;
-      color: #5a3e46;
-      margin: 0;
-      padding: 0;
-    }
-
-    #contact-menu {
       background: #fff0f5;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 600px;
-      margin: 50px auto;
-      box-shadow: 0 0 15px rgba(187, 143, 160, 0.2);
-    }
-
-    .contact h1 {
+      color: #333;
       text-align: center;
+      padding: 20px;
+    }
+    .egift-section {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
       color: #b95c7a;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
-
-    .person {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fff8f9;
-      border: 1px solid #f1dcdc;
-      border-radius: 12px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
     }
-
-    .name strong {
-      font-size: 1.1rem;
-      color: #693c47;
+    .qr-code img {
+      width: 200px;
+      height: 200px;
     }
-
-    .name span {
-      font-size: 0.9rem;
-      color: #8b4c5c;
-    }
-
-    .second-section button {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      margin-left: 8px;
-      cursor: pointer;
-      color: #b95c7a;
-      transition: transform 0.2s;
-    }
-
-    .second-section button:hover {
-      transform: scale(1.2);
+    .bank-info {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div id="contact-menu" class="toggle-menu">
-    <div class="contact">
-      <h1>Hubungi</h1>
-      <div class="content">
 
-        <!-- Zuraidi -->
-        <div class="person">
-          <div class="name">
-            <strong>Zuraidi</strong><br>
-            <span>Bapa Pengantin</span>
-          </div>
-          <div class="second-section">
-            <button onclick="makePhoneCall('+60195477979')">📞</button>
-            <button onclick="openWhatsApp('+60195477979')">💬</button>
-          </div>
-        </div>
+  <div class="egift-section">
+    <h2>E-Gift / Duit Kahwin</h2>
+    <p>Sebagai tanda kasih, anda boleh memberi sumbangan melalui QR code ini.</p>
 
-        <!-- Norma -->
-        <div class="person">
-          <div class="name">
-            <strong>Norma</strong><br>
-            <span>Ibu Pengantin</span>
-          </div>
-          <div class="second-section">
-            <button onclick="makePhoneCall('+60134927517')">📞</button>
-            <button onclick="openWhatsApp('+60134927517')">💬</button>
-          </div>
-        </div>
+    <div class="qr-code">
+      <img id="qrcode" src="" alt="QR Code E-Gift" />
+    </div>
 
-        <!-- Aina -->
-        <div class="person">
-          <div class="name">
-            <strong>Aina</strong><br>
-            <span>Kakak Pengantin</span>
-          </div>
-          <div class="second-section">
-            <button onclick="makePhoneCall('+60134903979')">📞</button>
-            <button onclick="openWhatsApp('+60134903979')">💬</button>
-          </div>
-        </div>
-
-      </div>
+    <div class="bank-info">
+      <p>Bank: Maybank</p>
+      <p>No. Akaun: 08022020652854</p>
+      <p>Nama: Nurul Syuhaini Aida</p>
     </div>
   </div>
 
   <script>
-    function makePhoneCall(number) {
-      window.location.href = `tel:${number}`;
-    }
+    // Replace this with your e-gift link (e.g., DuitNow, ShopeePay, Maybank2u link)
+    const egiftLink = "https://duitnow.example.com/your-id";
 
-    function openWhatsApp(number) {
-      const url = `https://wa.me/${number.replace('+', '')}`;
-      window.open(url, '_blank');
-    }
+    // Generate QR code using free API
+    const qrImage = document.getElementById("qrcode");
+    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(egiftLink)}`;
   </script>
+
 </body>
 </html>
 
-</div>
-     </div>
     <div id="ucapan-menu" class="toggle-menu">
         <div class="ucapan-tetamu">
 <!--             <h1>Sampaikan Ucapan</h1>
