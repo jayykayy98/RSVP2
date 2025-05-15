@@ -321,7 +321,7 @@
 									  </section>
 									
 									  <script>
-									    const scriptURL = 'https://script.google.com/macros/s/AKfycbwxxxxxx-demo-url/exec'; 
+									    const scriptURL = 'https://script.google.com/macros/s/AKfycby6wLApxFGqRGHpjysRbL17ZFT3KxY52lmXNGvI6z4Cg_4scWAZ5Zwv5B-_XzxBcLQqJQ/exec'; 
 									    const form = document.getElementById('form-ucapan');
 									    const thankYou = document.getElementById('thank-you');
 									
@@ -368,8 +368,8 @@
     <h3 style="margin-top:0;color:#669966;">Ibu Pengantin</h3>
     <p>Nama: Norma </p>
     <p>
-      📞 <a href="tel:0123456789" style="color:#3366cc;text-decoration:none;font-weight:500;">Panggil: 0134927517</a><br>
-      💬 <a href="https://wa.me/60123456789" target="_blank" style="color:#3366cc;text-decoration:none;font-weight:500;">WhatsApp</a>
+      📞 <a href="tel:0134927517" style="color:#3366cc;text-decoration:none;font-weight:500;">Panggil: 0134927517</a><br>
+      💬 <a href="https://wa.me/60134927517" target="_blank" style="color:#3366cc;text-decoration:none;font-weight:500;">WhatsApp</a>
     </p>
   </div>
 
@@ -377,8 +377,16 @@
     <h3 style="margin-top:0;color:#669966;">Bapa Pengantin</h3>
     <p>Nama: Zuraidi</p>
     <p>
-      📞 <a href="tel:0198765432" style="color:#3366cc;text-decoration:none;font-weight:500;">Panggil: 0195477979</a><br>
-      💬 <a href="https://wa.me/60198765432" target="_blank" style="color:#3366cc;text-decoration:none;font-weight:500;">WhatsApp</a>
+      📞 <a href="tel:0195477979" style="color:#3366cc;text-decoration:none;font-weight:500;">Panggil: 0195477979</a><br>
+      💬 <a href="https://wa.me/60195477979" target="_blank" style="color:#3366cc;text-decoration:none;font-weight:500;">WhatsApp</a>
+    </p>
+  </div>
+	<div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:15px;margin-bottom:15px;box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+    <h3 style="margin-top:0;color:#669966;">Kakak Pengantin</h3>
+    <p>Nama: Aina</p>
+    <p>
+      📞 <a href="tel:0134903979" style="color:#3366cc;text-decoration:none;font-weight:500;">Panggil: 0134903979</a><br>
+      💬 <a href="https://wa.me/60134903979" target="_blank" style="color:#3366cc;text-decoration:none;font-weight:500;">WhatsApp</a>
     </p>
   </div>
 </section>
@@ -583,71 +591,63 @@
 
 <body>
   <section class="rsvp-section">
-    <h2>Pengesahan Kehadiran</h2>
+   <form id="form-kehadiran" method="POST" action="https://formspree.io/f/xwpoqzve">
+  <label for="name">Nama Penuh</label>
+  <input type="text" name="name" placeholder="Contoh: Park Jimin" required />
 
-    <form id="form-kehadiran" method="POST" action="https://formspree.io/f/xwpoqzve">
-      <label for="name">Nama Penuh</label>
-      <input type="text" name="name" placeholder="Contoh: Park Jimin" required />
+  <label for="bilangan">Bilangan Kehadiran</label>
+  <select name="bilangan" required>
+    <option value="">Pilih</option>
+    <option value="1">1 Orang</option>
+    <option value="2">2 Orang</option>
+    <option value="3">3 Orang</option>
+    <option value="4+">4 Orang atau lebih</option>
+  </select>
 
-      <label for="bilangan">Bilangan Kehadiran</label>
-      <select name="bilangan" required>
-        <option value="">Pilih</option>
-        <option value="1">1 Orang</option>
-        <option value="2">2 Orang</option>
-        <option value="3">3 Orang</option>
-        <option value="4+">4 Orang atau lebih</option>
-      </select>
+  <label for="status">Status Kehadiran</label>
+  <select name="status" required>
+    <option value="">Pilih</option>
+    <option value="Hadir">Hadir</option>
+    <option value="Tidak Pasti">Tidak Pasti</option>
+    <option value="Tidak Hadir">Tidak Hadir</option>
+  </select>
 
-      <label for="status">Status Kehadiran</label>
-      <select name="status" required>
-        <option value="">Pilih</option>
-        <option value="Hadir">Hadir</option>
-        <option value="Tidak Pasti">Tidak Pasti</option>
-        <option value="Tidak Hadir">Tidak Hadir</option>
-      </select>
+  <button type="submit">Hantar Kehadiran</button>
+</form>
 
-      <button type="submit">Hantar Kehadiran</button>
-    </form>
+<div id="thank-you" style="display:none;">
+  🌸 Terima kasih atas maklumbalas anda! 🌸<br>
+  Anda akan dialihkan semula sebentar lagi...
+</div>
 
-    <div id="thank-you">
-      🌸 Terima kasih atas maklumbalas anda! 🌸<br>
-      Anda akan dialihkan semula sebentar lagi...
-    </div>
-  </section>
+<script>
+  const form = document.getElementById('form-kehadiran');
+  const thankYou = document.getElementById('thank-you');
 
-  <script>
-    const form = document.getElementById('form-kehadiran');
-    const thankYou = document.getElementById('thank-you');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
+    const formData = new FormData(form);
 
-      fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          thankYou.style.display = 'block';
-          
-          // ✅ Redirect balik selepas 3 saat (refresh ke laman semula)
-          setTimeout(() => {
-            window.location.href = window.location.href;
-          }, 3000);
-
-        } else {
-          alert('Ralat berlaku. Sila cuba lagi.');
-        }
-      }).catch(error => {
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        thankYou.style.display = 'block';
+        setTimeout(() => {
+          window.location.href = window.location.href;
+        }, 3000);
+      } else {
         alert('Ralat berlaku. Sila cuba lagi.');
-        console.error('Error:', error);
-      });
+      }
+    }).catch(() => {
+      alert('Ralat berlaku. Sila cuba lagi.');
     });
-  </script>
-</body>
-</html>
+  });
+</script>
 
 
         </div>
