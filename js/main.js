@@ -172,8 +172,8 @@ function addAppleCalendar() {
  *  Location for Google and Waze
   ======================================================= */
 function openGoogleMaps() {
-    const latitude = 5.051241;
-    const longitude = 100.487835;
+    const latitude = 5.128322845399595;
+    const longitude = 100.4728584423282;
     const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&travelmode=driving`;
 
     window.open(googleMapsUrl, "_blank");  // Open in a new tab
