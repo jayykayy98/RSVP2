@@ -465,58 +465,34 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Pengesahan Kehadiran</title>
-<style>
-  body { font-family: 'Segoe UI', sans-serif; background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png'); background-size:cover; color:#444; margin:0; padding:0; }
-  .rsvp-section { max-width:600px; margin:50px auto; padding:30px; background:#ffffffcc; border-radius:20px; box-shadow:0 0 15px rgba(180,157,166,0.2); border:1px solid #f1dcdc; }
-  label { display:block; margin-top:15px; font-weight:bold; color:#8b4c5c; }
-  input[type="text"], select { width:100%; padding:12px; margin-top:5px; border:1px solid #e6c3cb; border-radius:10px; background:#fff0f4; font-size:1rem; }
-  button { margin-top:20px; width:100%; background:#b95c7a; color:#fff; padding:12px; border:none; border-radius:12px; font-size:1rem; cursor:pointer; transition:background 0.3s ease; }
-  button:hover { background:#a14f6a; }
-  #thank-you { background:#fbe3eb; padding:15px; border-radius:10px; color:#c1506d; font-weight:bold; text-align:center; margin-top:20px; display:none; }
-</style>
+<style>body{font-family:sans-serif;background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');margin:0;padding:0}.rsvp-section{max-width:600px;margin:50px auto;padding:30px;background:#ffffffcc;border-radius:20px;box-shadow:0 0 15px rgba(180,157,166,0.2);border:1px solid #f1dcdc}label{display:block;margin-top:15px;font-weight:bold;color:#8b4c5c}input,select{width:100%;padding:12px;margin-top:5px;border:1px solid #e6c3cb;border-radius:10px;background:#fff0f4}button{margin-top:20px;width:100%;background:#b95c7a;color:#fff;padding:12px;border:none;border-radius:12px;cursor:pointer}button:hover{background:#a14f6a}#thank-you{background:#fbe3eb;padding:15px;border-radius:10px;color:#c1506d;font-weight:bold;text-align:center;margin-top:20px;display:none}</style>
 </head>
 <body>
 <section class="rsvp-section">
-  <form id="form-kehadiran" method="POST" action="https://formspree.io/f/xwpoqzve">
-    <label for="name">Nama Penuh</label>
-    <input type="text" name="name" placeholder="Contoh: Park Jimin" required />
-    <label for="bilangan">Bilangan Kehadiran</label>
-    <select name="bilangan" required>
-      <option value="">Pilih</option>
-      <option value="1">1 Orang</option>
-      <option value="2">2 Orang</option>
-      <option value="3">3 Orang</option>
-      <option value="4+">4 Orang atau lebih</option>
-    </select>
-    <label for="status">Status Kehadiran</label>
-    <select name="status" required>
-      <option value="">Pilih</option>
-      <option value="Hadir">Hadir</option>
-      <option value="Tidak Pasti">Tidak Pasti</option>
-      <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
+  <form id="form-kehadiran">
+    <label>Nama Penuh</label><input type="text" name="name" required>
+    <label>Bilangan Kehadiran</label><select name="bilangan" required><option value="">Pilih</option><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4+">4 Orang atau lebih</option></select>
+    <label>Status Kehadiran</label><select name="status" required><option value="">Pilih</option><option value="Hadir">Hadir</option><option value="Tidak Pasti">Tidak Pasti</option><option value="Tidak Hadir">Tidak Hadir</option></select>
     <button type="submit">Hantar Kehadiran</button>
   </form>
   <div id="thank-you">🌸 Terima kasih atas maklumbalas anda! 🌸<br>Anda akan dialihkan semula sebentar lagi...</div>
 </section>
 <script>
-  const form = document.getElementById('form-kehadiran');
-  const thankYou = document.getElementById('thank-you');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
-      .then(res => {
-        if (res.ok) {
-          form.reset();
-          thankYou.style.display = 'block';
-          setTimeout(() => { window.location.href = '/'; }, 1000);
-        } else alert('Ralat berlaku. Sila cuba lagi.');
-      })
-      .catch(() => alert('Ralat berlaku. Sila cuba lagi.'));
-  });
+document.getElementById('form-kehadiran').addEventListener('submit', e => {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  fetch('https://script.google.com/macros/s/AKfycbz4xTTR8yqbPdQb0yNF5LvAXyoo7ajlckYinhcZ6ZQ2WT3T3YBI9NiV4_5qR4eEH1el/exec', { method: 'POST', body: data })
+    .then(res => res.json())
+    .then(res => {
+      if (res.success) {
+        e.target.reset();
+        document.getElementById('thank-you').style.display = 'block';
+        setTimeout(() => location.href = '/', 1000);
+      } else alert('Ralat berlaku. Sila cuba lagi.');
+    }).catch(() => alert('Ralat berlaku. Sila cuba lagi.'));
+});
 </script>
 </body>
 </html>
