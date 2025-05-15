@@ -462,151 +462,45 @@
 
     <div id="rsvp-menu" class="toggle-menu">
         <div class="rsvp">
-         <!DOCTYPE html>
+		<!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <title>Pengesahan Kehadiran</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');
-      background-size: cover;
-      background-attachment: fixed;
-      color: #444;
-      margin: 0;
-      padding: 0;
-    }
-
-    .rsvp-section {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #ffffffcc;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(180, 157, 166, 0.2);
-      border: 1px solid #f1dcdc;
-    }
-
-    h2 {
-      text-align: center;
-      color: #b95c7a;
-      font-family: 'Playfair Display', serif;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #8b4c5c;
-    }
-
-    input[type="text"], select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      border: 1px solid #e6c3cb;
-      border-radius: 10px;
-      background: #fff0f4;
-      font-size: 1rem;
-    }
-
-    button {
-      margin-top: 20px;
-      width: 100%;
-      background: #b95c7a;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #a14f6a;
-    }
-
-    #thank-you {
-      background-color: #fbe3eb;
-      padding: 15px;
-      border-radius: 10px;
-      color: #c1506d;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 20px;
-      display: none;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Pengesahan Kehadiran</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');body{font-family:'Segoe UI',sans-serif;background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');background-size:cover;background-attachment:fixed;color:#444;margin:0;padding:0}.rsvp-section{max-width:600px;margin:50px auto;padding:30px;background:#ffffffcc;border-radius:20px;box-shadow:0 0 15px rgba(180,157,166,0.2);border:1px solid #f1dcdc}h2{text-align:center;color:#b95c7a;font-family:'Playfair Display',serif}label{display:block;margin-top:15px;font-weight:bold;color:#8b4c5c}input[type="text"],select{width:100%;padding:12px;margin-top:5px;border:1px solid #e6c3cb;border-radius:10px;background:#fff0f4;font-size:1rem}button{margin-top:20px;width:100%;background:#b95c7a;color:white;padding:12px;border:none;border-radius:12px;font-size:1rem;cursor:pointer;transition:background 0.3s ease}button:hover{background:#a14f6a}#thank-you{background-color:#fbe3eb;padding:15px;border-radius:10px;color:#c1506d;font-weight:bold;text-align:center;margin-top:20px;display:none}</style>
 </head>
-
 <body>
-  <section class="rsvp-section">
-   <form id="form-kehadiran" method="POST" action="https://formspree.io/f/xwpoqzve">
-  <label for="name">Nama Penuh</label>
-  <input type="text" name="name" placeholder="Contoh: Park Jimin" required />
-
-  <label for="bilangan">Bilangan Kehadiran</label>
-  <select name="bilangan" required>
-    <option value="">Pilih</option>
-    <option value="1">1 Orang</option>
-    <option value="2">2 Orang</option>
-    <option value="3">3 Orang</option>
-    <option value="4+">4 Orang atau lebih</option>
-  </select>
-
-  <label for="status">Status Kehadiran</label>
-  <select name="status" required>
-    <option value="">Pilih</option>
-    <option value="Hadir">Hadir</option>
-    <option value="Tidak Pasti">Tidak Pasti</option>
-    <option value="Tidak Hadir">Tidak Hadir</option>
-  </select>
-
-  <button type="submit">Hantar Kehadiran</button>
-</form>
-
-<div id="thank-you" style="display:none;">
-  🌸 Terima kasih atas maklumbalas anda! 🌸<br>
-  Anda akan dialihkan semula sebentar lagi...
-</div>
-
+<section class="rsvp-section">
+  <h2>Pengesahan Kehadiran</h2>
+  <form id="form-kehadiran" method="POST" action="https://formspree.io/f/xwpoqzve">
+    <label for="name">Nama Penuh</label>
+    <input type="text" name="name" placeholder="Contoh: Park Jimin" required />
+    <label for="bilangan">Bilangan Kehadiran</label>
+    <select name="bilangan" required>
+      <option value="">Pilih</option>
+      <option value="1">1 Orang</option>
+      <option value="2">2 Orang</option>
+      <option value="3">3 Orang</option>
+      <option value="4+">4 Orang atau lebih</option>
+    </select>
+    <label for="status">Status Kehadiran</label>
+    <select name="status" required>
+      <option value="">Pilih</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Pasti">Tidak Pasti</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+    <button type="submit">Hantar Kehadiran</button>
+  </form>
+  <div id="thank-you">🌸 Terima kasih atas maklumbalas anda! 🌸<br>Anda akan dialihkan sebentar lagi...</div>
+</section>
 <script>
-  const form = document.getElementById('form-kehadiran');
-  const thankYou = document.getElementById('thank-you');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent default form submission
-
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        form.reset();
-        thankYou.style.display = 'block';
-        setTimeout(() => {
-          window.location.href = window.location.href;
-        }, 3000);
-      } else {
-        alert('Ralat berlaku. Sila cuba lagi.');
-      }
-    }).catch(() => {
-      alert('Ralat berlaku. Sila cuba lagi.');
-    });
-  });
+const form=document.getElementById('form-kehadiran'),thankYou=document.getElementById('thank-you');form.addEventListener('submit',function(e){e.preventDefault();const formData=new FormData(form);fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}}).then(response=>{if(response.ok){form.reset();thankYou.style.display='block';setTimeout(()=>{window.location.href=window.location.href},3000)}else alert('Ralat berlaku. Sila cuba lagi.')}).catch(()=>{alert('Ralat berlaku. Sila cuba lagi.')})});
 </script>
-
-
-        </div>
-    </div>
-
+</body>
+</html>
+	</div></div>
+  
 
 
       
