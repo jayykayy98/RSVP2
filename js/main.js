@@ -297,7 +297,6 @@ const toggleButtons = {
     'music-btn': 'music-menu',
     'rsvp-btn': 'rsvp-menu',
     'ucapan-btn': 'ucapan-menu',
-    'contact-btn': 'contact-menu',
     'kehadiran-btn': 'rsvp-menu',
     'gift-btn': 'gift-menu',
     'btn-hadir': 'success-menu'
