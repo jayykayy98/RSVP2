@@ -163,45 +163,6 @@
 
             </div>
             <img src="./images/divider.png" alt="" class="divider reveal fade-bottom">
-<div>
-<title>Pengesahan Kehadiran</title>
-<style>body{font-family:sans-serif;background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');margin:0;padding:0}.rsvp-section{max-width:600px;margin:50px auto;padding:30px;background:#ffffffcc;border-radius:20px;box-shadow:0 0 15px rgba(180,157,166,0.2);border:1px solid #f1dcdc}label{display:block;margin-top:15px;font-weight:bold;color:#8b4c5c}input,select{width:100%;padding:12px;margin-top:5px;border:1px solid #e6c3cb;border-radius:10px;background:#fff0f4}button{margin-top:20px;width:100%;background:#b95c7a;color:#fff;padding:12px;border:none;border-radius:12px;cursor:pointer}button:hover{background:#a14f6a}#thank-you{background:#fbe3eb;padding:15px;border-radius:10px;color:#c1506d;font-weight:bold;text-align:center;margin-top:20px;display:none}</style>
-<section class="rsvp-section">
-  <form id="form-kehadiran">
-    <label>Nama Penuh</label><input type="text" name="name" required>
-    <label>Bilangan Kehadiran</label><select name="bilangan" required><option value="">Pilih</option><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4+">4 Orang atau lebih</option></select>
-    <label>Status Kehadiran</label><select name="status" required><option value="">Pilih</option><option value="Hadir">Hadir</option><option value="Tidak Pasti">Tidak Pasti</option><option value="Tidak Hadir">Tidak Hadir</option></select>
-    <button type="submit">Hantar Kehadiran</button>
-  </form>
-  <div id="thank-you">🌸 Terima kasih atas maklumbalas anda! 🌸<br>Anda akan dialihkan semula sebentar lagi...</div>
-</section>
-<script>
-document.getElementById('form-kehadiran').addEventListener('submit', e => {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const thankYou = document.getElementById('thank-you');
-
-  fetch('https://script.google.com/macros/s/AKfycbz4xTTR8yqbPdQb0yNF5LvAXyoo7ajlckYinhcZ6ZQ2WT3T3YBI9NiV4_5qR4eEH1el/exec', {
-    method: 'POST',
-    body: data
-  })
-  .then(res => res.json())
-  .then(res => {
-    if (res.success) {
-      form.reset();
-      form.style.display = 'none';
-      thankYou.style.display = 'block';
-      // Tidak kembali ke borang — hanya paparkan ucapan
-    } else {
-      alert('Ralat berlaku. Sila cuba lagi.');
-    }
-  })
-  .catch(() => alert('Ralat berlaku. Sila cuba lagi.'));
-});
-</script>
-
-</div>
 
 
 
@@ -319,6 +280,47 @@ document.getElementById('form-kehadiran').addEventListener('submit', e => {
 
         </div>
         </div>
+
+<div>
+<title>Pengesahan Kehadiran</title>
+<style>body{font-family:sans-serif;background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');margin:0;padding:0}.rsvp-section{max-width:600px;margin:50px auto;padding:30px;background:#ffffffcc;border-radius:20px;box-shadow:0 0 15px rgba(180,157,166,0.2);border:1px solid #f1dcdc}label{display:block;margin-top:15px;font-weight:bold;color:#8b4c5c}input,select{width:100%;padding:12px;margin-top:5px;border:1px solid #e6c3cb;border-radius:10px;background:#fff0f4}button{margin-top:20px;width:100%;background:#b95c7a;color:#fff;padding:12px;border:none;border-radius:12px;cursor:pointer}button:hover{background:#a14f6a}#thank-you{background:#fbe3eb;padding:15px;border-radius:10px;color:#c1506d;font-weight:bold;text-align:center;margin-top:20px;display:none}</style>
+<section class="rsvp-section">
+  <form id="form-kehadiran">
+    <label>Nama Penuh</label><input type="text" name="name" required>
+    <label>Bilangan Kehadiran</label><select name="bilangan" required><option value="">Pilih</option><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4+">4 Orang atau lebih</option></select>
+    <label>Status Kehadiran</label><select name="status" required><option value="">Pilih</option><option value="Hadir">Hadir</option><option value="Tidak Pasti">Tidak Pasti</option><option value="Tidak Hadir">Tidak Hadir</option></select>
+    <button type="submit">Hantar Kehadiran</button>
+  </form>
+  <div id="thank-you">🌸 Terima kasih atas maklumbalas anda! 🌸<br>Anda akan dialihkan semula sebentar lagi...</div>
+</section>
+<script>
+document.getElementById('form-kehadiran').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const thankYou = document.getElementById('thank-you');
+
+  fetch('https://script.google.com/macros/s/AKfycbz4xTTR8yqbPdQb0yNF5LvAXyoo7ajlckYinhcZ6ZQ2WT3T3YBI9NiV4_5qR4eEH1el/exec', {
+    method: 'POST',
+    body: data
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (res.success) {
+      form.reset();
+      form.style.display = 'none';
+      thankYou.style.display = 'block';
+      // Tidak kembali ke borang — hanya paparkan ucapan
+    } else {
+      alert('Ralat berlaku. Sila cuba lagi.');
+    }
+  })
+  .catch(() => alert('Ralat berlaku. Sila cuba lagi.'));
+});
+</script>
+
+</div>
+
 <section id="contact-family" style="padding:20px;background-color:#fef5f7;border-radius:15px;margin:20px 0;">
   <h2 style="color:#cc3366;">Hubungi Keluarga Pengantin Perempuan</h2>
   <p>Jika ada pertanyaan atau keperluan, sila hubungi:</p>
