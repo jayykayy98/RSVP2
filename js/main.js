@@ -299,6 +299,7 @@ const toggleButtons = {
     'ucapan-btn': 'ucapan-menu',
     'contact-btn': 'contact-menu',
     'kehadiran-btn': 'rsvp-menu',
+    'gift-btn': 'gift-menu',
     'btn-hadir': 'success-menu'
     // Add other button-to-menu mappings here
 };
