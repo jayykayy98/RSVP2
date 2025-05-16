@@ -195,16 +195,16 @@ function openWaze() {
 /** =====================================================
     Contact
   ======================================================= */
-function openWhatsApp(phoneNumber) {
-    const message = "Hello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
-}
+// function openWhatsApp(phoneNumber) {
+//     const message = "Hello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
+//     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+//     window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
+// }
 
-function makePhoneCall(phoneNumber) {
-    const callUrl = `tel:${phoneNumber}`;
-    window.location.href = callUrl;  // Opens the phone dialer
-}
+// function makePhoneCall(phoneNumber) {
+//     const callUrl = `tel:${phoneNumber}`;
+//     window.location.href = callUrl;  // Opens the phone dialer
+// }
 
 
 
