@@ -869,7 +869,6 @@ section {
 .toggle-menu .music,
 .toggle-menu .rsvp,
 .toggle-menu .gift,
-.toggle-menu .contact,
 .toggle-menu .ucapan-tetamu {
     display: flex;
     flex-direction: column;
@@ -1067,73 +1066,6 @@ section {
     font-size: 24px;
 }
 
-.toggle-menu .contact .content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 5px;
-}
-
-.toggle-menu .contact .content .person {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.toggle-menu .contact .content .person button {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.toggle-menu .contact .content .person .first-section {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-}
-
-.toggle-menu .contact .content .person .first-section .bx {
-    font-size: 30px;
-    color: darkcyan;
-}
-
-.toggle-menu .contact .content .person .first-section .name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.toggle-menu .contact .content .person .first-section .name span {
-    font-size: 16px;
-    font-family: 'Cormorant Garamond', serif;
-    color: #F8F4FF;
-    font-weight: 700;
-}
-
-.toggle-menu .contact .content .person .first-section .name span:nth-child(2) {
-    font-style: italic;
-    font-weight: 300;
-    font-size: 12;
-    color: lightgray;
-}
-
-.toggle-menu .contact .content .person .second-section {
-    display: flex;
-    gap: 10px;
-}
-
-.toggle-menu .contact .content .person .second-section .bx {
-    color: #F8F4FF;
-    font-size: 30px;
-}
 
 .toggle-menu .ucapan-tetamu form {
     display: flex;
