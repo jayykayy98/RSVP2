@@ -191,27 +191,6 @@ function openWaze() {
 
 
 
-
-/** =====================================================
-    Contact
-  ======================================================= */
-// function openWhatsApp(phoneNumber) {
-//     const message = "Hello, maaf menggangu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
-//     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-//     window.open(whatsappUrl, "_blank");  // Opens WhatsApp in a new tab
-// }
-
-// function makePhoneCall(phoneNumber) {
-//     const callUrl = `tel:${phoneNumber}`;
-//     window.location.href = callUrl;  // Opens the phone dialer
-// }
-
-
-
-
-
-
-
 /** =====================================================
  *  Animation
   ======================================================= */
@@ -232,8 +211,6 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
-
-
 
 
 
@@ -297,6 +274,7 @@ const toggleButtons = {
     'music-btn': 'music-menu',
     'rsvp-btn': 'rsvp-menu',
     'gift-btn': 'gift-menu',
+    'contact-btn': 'contact-menu',
     // Add other button-to-menu mappings here
 };
 
