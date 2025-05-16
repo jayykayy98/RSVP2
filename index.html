@@ -163,42 +163,54 @@
 
             </div>
             <img src="./images/divider.png" alt="" class="divider reveal fade-bottom">
-
-<section id="egift" style="padding:20px; background:#fff0f5; border-radius:8px; max-width:400px; margin:auto; font-family: Arial, sans-serif;">
-  <h2 style="color:#d46a6a;">E-Gift untuk Pengantin Bahagia</h2>
-
-  <p>Segala ucapan dan doa restu amat kami hargai. Sekiranya ingin berkongsi tanda kasih, anda boleh memberikan e-gift melalui Touch ‘n Go atau pindahan bank seperti di bawah.</p>
-
-  <div style="margin-bottom: 20px;">
-    <h3>Touch ‘n Go QR Code</h3>
-    <img src="./images/tng.jpg" alt="Touch 'n Go QR" style="width:180px; border: 2px solid #d46a6a; border-radius: 8px;">
-  </div>
-
-  <div style="margin-bottom: 20px;">
-    <h3>Bank Transfer</h3>
-    <img src="./images/bank.jpg" alt="Bank QR" style="width:180px; border: 2px solid #d46a6a; border-radius: 8px;">
-    <p style="margin-top: 10px; font-size: 16px;">
-      Bank Name: <b>Bank Islam</b><br>
-      Account Number: <b>08022020652854</b><br>
-      Account Holder: <b>Nurul Syuhaini Aida</b>
-    </p>
-  </div>
-
-
+<div><!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<title>Pengesahan Kehadiran</title>
+<style>body{font-family:sans-serif;background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');margin:0;padding:0}.rsvp-section{max-width:600px;margin:50px auto;padding:30px;background:#ffffffcc;border-radius:20px;box-shadow:0 0 15px rgba(180,157,166,0.2);border:1px solid #f1dcdc}label{display:block;margin-top:15px;font-weight:bold;color:#8b4c5c}input,select{width:100%;padding:12px;margin-top:5px;border:1px solid #e6c3cb;border-radius:10px;background:#fff0f4}button{margin-top:20px;width:100%;background:#b95c7a;color:#fff;padding:12px;border:none;border-radius:12px;cursor:pointer}button:hover{background:#a14f6a}#thank-you{background:#fbe3eb;padding:15px;border-radius:10px;color:#c1506d;font-weight:bold;text-align:center;margin-top:20px;display:none}</style>
+</head>
+<body>
+<section class="rsvp-section">
+  <form id="form-kehadiran">
+    <label>Nama Penuh</label><input type="text" name="name" required>
+    <label>Bilangan Kehadiran</label><select name="bilangan" required><option value="">Pilih</option><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4+">4 Orang atau lebih</option></select>
+    <label>Status Kehadiran</label><select name="status" required><option value="">Pilih</option><option value="Hadir">Hadir</option><option value="Tidak Pasti">Tidak Pasti</option><option value="Tidak Hadir">Tidak Hadir</option></select>
+    <button type="submit">Hantar Kehadiran</button>
+  </form>
+  <div id="thank-you">🌸 Terima kasih atas maklumbalas anda! 🌸<br>Anda akan dialihkan semula sebentar lagi...</div>
 </section>
-
 <script>
-  function thankYou() {
-    const name = document.getElementById('guestName').value.trim();
-    const msg = document.getElementById('thankMsg');
-    if(name) {
-      msg.textContent = `Thank you, ${name}! Your e-gift is appreciated.`;
+document.getElementById('form-kehadiran').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const thankYou = document.getElementById('thank-you');
+
+  fetch('https://script.google.com/macros/s/AKfycbz4xTTR8yqbPdQb0yNF5LvAXyoo7ajlckYinhcZ6ZQ2WT3T3YBI9NiV4_5qR4eEH1el/exec', {
+    method: 'POST',
+    body: data
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (res.success) {
+      form.reset();
+      form.style.display = 'none';
+      thankYou.style.display = 'block';
+      // Tidak kembali ke borang — hanya paparkan ucapan
     } else {
-      msg.textContent = `Thank you for your kind gift!`;
+      alert('Ralat berlaku. Sila cuba lagi.');
     }
-    msg.style.display = 'block';
-  }
+  })
+  .catch(() => alert('Ralat berlaku. Sila cuba lagi.'));
+});
 </script>
+
+</body>
+</html>
+</div>
+
+
 
             <div class="rsvp">
                 <h2 class="reveal fade-bottom">Ucapan</h2>
@@ -346,53 +358,7 @@
 </section>
 
 
-	<div id="contact-menu" class="toggle-menu">
-			    
-	  <div class="contact">
-            <h1>Hubungi</h1>
-            <div class="content">
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Zuraidi</span>
-                            <span>Bapa Pengantin</span>
-                        </div>
-                    </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60195477979')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60195477979')"><i class='bx bxl-whatsapp'></i></button>
-                    </div>
-                </div>
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Norma</span>
-                            <span>Ibu Pengantin</span>
-                        </div>
-                    </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60134927517')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60134927517')"><i class='bx bxl-whatsapp'></i></button>
-                    </div>
-                </div>
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Aina</span>
-                            <span>Kakak Pengantin</span>
-                        </div>
-                    </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60134903979')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60134903979')"><i class='bx bxl-whatsapp'></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
+
 		 
         </section>
         <section class="footer">
@@ -462,40 +428,28 @@
 
     <div id="rsvp-menu" class="toggle-menu">
         <div class="rsvp">
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-<meta charset="UTF-8">
-<title>Pengesahan Kehadiran</title>
-<style>body{font-family:sans-serif;background:#fff9f9 url('https://www.transparenttextures.com/patterns/floral-white.png');margin:0;padding:0}.rsvp-section{max-width:600px;margin:50px auto;padding:30px;background:#ffffffcc;border-radius:20px;box-shadow:0 0 15px rgba(180,157,166,0.2);border:1px solid #f1dcdc}label{display:block;margin-top:15px;font-weight:bold;color:#8b4c5c}input,select{width:100%;padding:12px;margin-top:5px;border:1px solid #e6c3cb;border-radius:10px;background:#fff0f4}button{margin-top:20px;width:100%;background:#b95c7a;color:#fff;padding:12px;border:none;border-radius:12px;cursor:pointer}button:hover{background:#a14f6a}#thank-you{background:#fbe3eb;padding:15px;border-radius:10px;color:#c1506d;font-weight:bold;text-align:center;margin-top:20px;display:none}</style>
-</head>
-<body>
-<section class="rsvp-section">
-  <form id="form-kehadiran">
-    <label>Nama Penuh</label><input type="text" name="name" required>
-    <label>Bilangan Kehadiran</label><select name="bilangan" required><option value="">Pilih</option><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4+">4 Orang atau lebih</option></select>
-    <label>Status Kehadiran</label><select name="status" required><option value="">Pilih</option><option value="Hadir">Hadir</option><option value="Tidak Pasti">Tidak Pasti</option><option value="Tidak Hadir">Tidak Hadir</option></select>
-    <button type="submit">Hantar Kehadiran</button>
-  </form>
-  <div id="thank-you">🌸 Terima kasih atas maklumbalas anda! 🌸<br>Anda akan dialihkan semula sebentar lagi...</div>
+		<section id="egift" style="padding:20px; background:#fff0f5; border-radius:8px; max-width:400px; margin:auto; font-family: Arial, sans-serif;">
+  <h2 style="color:#d46a6a;">E-Gift untuk Pengantin Bahagia</h2>
+
+  <p>Segala ucapan dan doa restu amat kami hargai. Sekiranya ingin berkongsi tanda kasih, anda boleh memberikan e-gift melalui Touch ‘n Go atau pindahan bank seperti di bawah.</p>
+
+  <div style="margin-bottom: 20px;">
+    <h3>Touch ‘n Go QR Code</h3>
+    <img src="./images/tng.jpg" alt="Touch 'n Go QR" style="width:180px; border: 2px solid #d46a6a; border-radius: 8px;">
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <h3>Bank Transfer</h3>
+    <img src="./images/bank.jpg" alt="Bank QR" style="width:180px; border: 2px solid #d46a6a; border-radius: 8px;">
+    <p style="margin-top: 10px; font-size: 16px;">
+      Bank Name: <b>Bank Islam</b><br>
+      Account Number: <b>08022020652854</b><br>
+      Account Holder: <b>Nurul Syuhaini Aida</b>
+    </p>
+  </div>
+
+
 </section>
-<script>
-document.getElementById('form-kehadiran').addEventListener('submit', e => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  fetch('https://script.google.com/macros/s/AKfycbz4xTTR8yqbPdQb0yNF5LvAXyoo7ajlckYinhcZ6ZQ2WT3T3YBI9NiV4_5qR4eEH1el/exec', { method: 'POST', body: data })
-    .then(res => res.json())
-    .then(res => {
-      if (res.success) {
-        e.target.reset();
-        document.getElementById('thank-you').style.display = 'block';
-        setTimeout(() => location.href = '/', 1000);
-      } else alert('Ralat berlaku. Sila cuba lagi.');
-    }).catch(() => alert('Ralat berlaku. Sila cuba lagi.'));
-});
-</script>
-</body>
-</html>
 
 	</div></div>
   
