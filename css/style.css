@@ -869,6 +869,7 @@ section {
 .toggle-menu .music,
 .toggle-menu .rsvp,
 .toggle-menu .gift,
+.toggle-menu .contact,
 .toggle-menu .ucapan-tetamu {
     display: flex;
     flex-direction: column;
@@ -1033,6 +1034,37 @@ section {
 
 .toggle-menu .rsvp .button #btn-tidak-hadir i {
     color: red;
+}
+
+.toggle-menu .contact .button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.toggle-menu .contact .button button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 8px 6px;
+    border: none;
+    border-radius: 5px;
+    gap: 5px;
+    cursor: pointer;
+    background: #F8F4FF;
+}
+
+.toggle-menu .contact .button button:hover {
+    background: #a14f6a;
+    opacity: 0.9;
+}
+
+.toggle-menu .contact .button button i {
+    font-size: 24px;
 }
 
 .toggle-menu .gift .button {
