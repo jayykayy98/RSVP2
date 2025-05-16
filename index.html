@@ -167,122 +167,9 @@
 
 
             <div class="rsvp">
-                <h2 class="reveal fade-bottom">Ucapan</h2>
+                <h2 class="reveal fade-bottom">RSVP & Ucapan</h2>
                 <div class="container-message reveal fade-bottom">
-                             <!DOCTYPE html>
-<html lang="ms">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Buku Ucapan</title>
-<style>
-  body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; }
-  h1, h2 { text-align: center; color: #333; }
-  form { background: white; max-width: 500px; margin: 0 auto; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-  label { display: block; margin: 12px 0 6px; color: #444; }
-  input[type="text"], textarea { width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-  button { margin-top: 15px; background-color: #28a745; color: #fff; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; width: 100%; }
-  button:hover { background-color: #218838; }
-  #success-message { text-align: center; background: #d4edda; color: #155724; padding: 10px; margin: 20px auto; border-radius: 8px; max-width: 500px; display: none; }
-  #ucapan-list { max-width: 700px; margin: 30px auto; background: #e8c1f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-  .ucapan-entry { border-bottom: 1px solid #eee; padding: 12px 0; }
-  .ucapan-entry:last-child { border-bottom: none; }
-  .ucapan-entry strong { font-size: 16px; color: #333; }
-  .ucapan-entry em { display: block; color: #555; margin-top: 4px; }
-</style>
-</head>
-<body>
-
-<h1>Sampaikan Ucapan</h1>
-
-<form id="form-ucapan">
-  <label for="name">Nama Anda</label>
-  <input type="text" id="name" name="name" placeholder="Jeon Jungkook" required />
-  
-  <label for="message">Ucapan</label>
-  <textarea id="message" name="message" rows="4" placeholder="Selamat pengantin baru..." required></textarea>
-  
-  <button type="submit">Hantar Ucapan</button>
-</form>
-
-<div id="success-message">Terima kasih atas ucapan anda! 💌</div>
-
-<h2>Ucapan Terkini</h2>
-<div id="ucapan-list"></div>
-
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycby6wLApxFGqRGHpjysRbL17ZFT3KxY52lmXNGvI6z4Cg_4scWAZ5Zwv5B-_XzxBcLQqJQ/exec';
-  const form = document.getElementById('form-ucapan');
-  const successMessage = document.getElementById('success-message');
-  const ucapanList = document.getElementById('ucapan-list');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const name = form.name.value.trim();
-    const message = form.message.value.trim();
-
-    if (!name || !message) return;
-
-    fetch(scriptURL, {
-      method: 'POST',
-      body: new URLSearchParams({ name, message }),
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        form.reset();
-        showSuccess();
-        loadUcapan(); // Refresh message list after submit
-      } else {
-        alert('Gagal hantar ucapan. Sila cuba lagi.');
-      }
-    })
-    .catch(() => alert('Ralat sambungan. Sila cuba lagi.'));
-  });
-
-  function showSuccess() {
-    successMessage.style.display = 'block';
-    setTimeout(() => { successMessage.style.display = 'none'; }, 3000);
-  }
-
-  function loadUcapan() {
-    fetch(scriptURL)
-      .then(res => res.json())
-      .then(data => {
-        ucapanList.innerHTML = '';
-        data.forEach(entry => {
-          const div = document.createElement('div');
-          div.className = 'ucapan-entry';
-          div.innerHTML = `<strong>${escapeHtml(entry.name)}</strong><em>${escapeHtml(entry.message)}</em>`;
-          ucapanList.appendChild(div);
-        });
-      })
-      .catch(() => {
-        ucapanList.innerHTML = '<p>Gagal muatkan ucapan terkini.</p>';
-      });
-  }
-
-  // Simple escape for HTML injection protection
-  function escapeHtml(text) {
-    return text.replace(/[&<>"']/g, function(m) {
-      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
-    });
-  }
-
-  // Load messages on page load
-  window.addEventListener('DOMContentLoaded', loadUcapan);
-</script>
-
-</body>
-</html>
-
-
-        </div>
-        </div>
-
-<div>
-<div>
+			<div>
   <title>Pengesahan Kehadiran</title>
   <style>
     body {
@@ -394,6 +281,120 @@
 </div>
 
 
+                             <!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buku Ucapan dan RSVP</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; }
+  h1, h2 { text-align: center; color: #333; }
+  form { background: white; max-width: 500px; margin: 0 auto; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  label { display: block; margin: 12px 0 6px; color: #444; }
+  input[type="text"], textarea { width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+  button { margin-top: 15px; background-color: #28a745; color: #fff; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; width: 100%; }
+  button:hover { background-color: #218838; }
+  #success-message { text-align: center; background: #d4edda; color: #155724; padding: 10px; margin: 20px auto; border-radius: 8px; max-width: 500px; display: none; }
+  #ucapan-list { max-width: 700px; margin: 30px auto; background: #e8c1f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .ucapan-entry { border-bottom: 1px solid #eee; padding: 12px 0; }
+  .ucapan-entry:last-child { border-bottom: none; }
+  .ucapan-entry strong { font-size: 16px; color: #333; }
+  .ucapan-entry em { display: block; color: #555; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Sampaikan Ucapan</h1>
+
+<form id="form-ucapan">
+  <label for="name">Nama Anda</label>
+  <input type="text" id="name" name="name" placeholder="Jeon Jungkook" required />
+  
+  <label for="message">Ucapan</label>
+  <textarea id="message" name="message" rows="4" placeholder="Selamat pengantin baru..." required></textarea>
+  
+  <button type="submit">Hantar Ucapan</button>
+</form>
+
+<div id="success-message">Terima kasih atas ucapan anda! 💌</div>
+
+<h2>Ucapan Terkini</h2>
+<div id="ucapan-list"></div>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycby6wLApxFGqRGHpjysRbL17ZFT3KxY52lmXNGvI6z4Cg_4scWAZ5Zwv5B-_XzxBcLQqJQ/exec';
+  const form = document.getElementById('form-ucapan');
+  const successMessage = document.getElementById('success-message');
+  const ucapanList = document.getElementById('ucapan-list');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !message) return;
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: new URLSearchParams({ name, message }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        form.reset();
+        showSuccess();
+        loadUcapan(); // Refresh message list after submit
+      } else {
+        alert('Gagal hantar ucapan. Sila cuba lagi.');
+      }
+    })
+    .catch(() => alert('Ralat sambungan. Sila cuba lagi.'));
+  });
+
+  function showSuccess() {
+    successMessage.style.display = 'block';
+    setTimeout(() => { successMessage.style.display = 'none'; }, 3000);
+  }
+
+  function loadUcapan() {
+    fetch(scriptURL)
+      .then(res => res.json())
+      .then(data => {
+        ucapanList.innerHTML = '';
+        data.forEach(entry => {
+          const div = document.createElement('div');
+          div.className = 'ucapan-entry';
+          div.innerHTML = `<strong>${escapeHtml(entry.name)}</strong><em>${escapeHtml(entry.message)}</em>`;
+          ucapanList.appendChild(div);
+        });
+      })
+      .catch(() => {
+        ucapanList.innerHTML = '<p>Gagal muatkan ucapan terkini.</p>';
+      });
+  }
+
+  // Simple escape for HTML injection protection
+  function escapeHtml(text) {
+    return text.replace(/[&<>"']/g, function(m) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+    });
+  }
+
+  // Load messages on page load
+  window.addEventListener('DOMContentLoaded', loadUcapan);
+</script>
+
+</body>
+</html>
+
+
+        </div>
+        </div>
+
+<div>
+
 
 </div>
 
@@ -437,9 +438,9 @@
                 <li id="calendar-btn"><i class='bx bx-calendar'></i></li>
                 <li id="location-btn"><i class='bx bx-map'></i></li>
                 <li id="music-btn"><i class='bx bx-music'></i></li>
-                <li id="rsvp-btn"><i class='bx bx-gift'></i></li>
-<!--                 <li id="contact-btn"><i class='bx bx-phone'></i></li>
-		<li id="gift-btn"><i class='bx bx-gift'></i></li> -->
+                <li id="gift-btn"><i class='bx bx-gift'></i></li>
+<!--             <li id="contact-btn"><i class='bx bx-phone'></i></li> -->
+		<li id="rsvp-btn"><i class='bx bx-envelope'></i></li> 
             </ul>
         </section>
     </div>
